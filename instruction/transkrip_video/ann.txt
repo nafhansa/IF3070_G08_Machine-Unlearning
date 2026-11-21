@@ -1,0 +1,178 @@
+[00:00:00.000 - 00:00:13.580] Halo semua, bertemu lagi dengan saya Masayu. Kita akan melanjutkan pembahasan modul artificial neural network.
+[00:00:14.140 - 00:00:21.060] Setelah sebelumnya kita mempelajari tentang perceptron dan beberapa algoritma training untuk perceptron,
+[00:00:21.060 - 00:00:27.920] sekarang kita akan mempelajari yang lebih umum, yaitu tentang artificial neural networknya sendiri,
+[00:00:27.920 - 00:00:32.020] terutama tentang feed forward neural network
+[00:00:32.040 - 00:00:40.840] Jadi video ini bertujuan agar kita semua mampu memahami cara kerja ANN khususnya feedforward Neural Network
+[00:00:40.840 - 00:00:47.520] Mengapa kita masih harus mempelajari Artificial Neural Network atau ANN?
+[00:00:48.220 - 00:00:56.000] Yang pertama adalah karena banyaknya aplikasi yang telah dikembangkan untuk berbagai bidang dengan task yang berbeda
+[00:00:56.000 - 00:01:05.420] Bisa kita lihat disini berbagai bidang telah mengembangkan aplikasi baik untuk task prediksi ataupun klasifikasi
+[00:01:05.420 - 00:01:12.000] Bahkan bisa kita kembangkan aplikasi ANN untuk task yang lebih kompleks
+[00:01:12.560 - 00:01:20.880] Seperti image captioning menerima foto atau gambar yang kemudian memberikan deskripsi dari gambar tersebut
+[00:01:20.880 - 00:01:27.380] Kemudian ANN ini merupakan dasar dari deep learning yang sedang hype saat ini
+[00:01:27.380 - 00:01:33.560] Jadi perkembangannya juga sangat pesat dan banyak sekali library ataupun tools
+[00:01:33.560 - 00:01:37.720] Sehingga pengembangan modelnya bisa lebih mudah dilakukan
+[00:01:37.720 - 00:01:45.200] Dengan mengetahui konsep dasar dari ANN kita bisa mengetahui komputasi yang terjadi di belakang model tersebut
+[00:01:45.200 - 00:01:49.760] Sehingga kita bisa mengembangkan model yang dibutuhkan dengan kinerja yang baik
+[00:01:49.760 - 00:01:57.720] Selain itu kita juga bisa memahami perkembangan ANN saat ini yang merupakan pengembangan dari konsep dasar
+[00:01:57.720 - 00:02:05.180] Sebagai contoh misalnya kita ingin mengembangkan aplikasi yang bisa mengenali gambar buah
+[00:02:05.180 - 00:02:12.700] Jadi misalnya pakai sensor kamera lalu nanti dia akan mengenali buah apa yang ada di depan kamera
+[00:02:12.700 - 00:02:19.200] Nah untuk image recognition seperti ini banyak sekali arsitektur dari ANN yang dikembangkan
+[00:02:19.200 - 00:02:25.140] Pada contoh ini adalah convolutional layer yang kemudian menggunakan fully connected layer
+[00:02:25.140 - 00:02:31.060] Nah memang fully connected layer saja yang akan kita pelajari pada mata kuliah ini
+[00:02:31.060 - 00:02:34.240] Convolutional layer akan dipelajari pada mata kuliah lain
+[00:02:34.240 - 00:02:39.180] Fully connected layer inilah yang kemudian disebut feed forward neural network
+[00:02:39.180 - 00:02:47.520] Saat belajar perceptron kita sudah menyebutkan bahwa perceptron tersebut adalah artificial neural network
+[00:02:47.520 - 00:02:52.920] Termasuk perceptron yang kita pelajari pada gradient distance yang disebut dengan adaptive linear unit
+[00:02:52.920 - 00:02:57.000] Mereka terdiri atas single unit atau disebut juga satu neuron
+[00:02:57.000 - 00:03:02.680] Dan merupakan estimasi suatu fungsi target yang kita sebut dengan hipotesis
+[00:03:02.680 - 00:03:05.240] Kita bisa lihat kan karena ini model linear
+[00:03:05.240 - 00:03:13.560] Kemudian perceptron punya activation function yang kita pelajari adalah sign dan linear pada saat gradient distance
+[00:03:13.560 - 00:03:14.520] Untuk ada line
+[00:03:14.520 - 00:03:24.040] Namanya sendiri artificial neural karena ini terinspirasi dari cara kerja otak yang dipelajari pada neuroscience
+[00:03:24.040 - 00:03:31.720] Sedangkan networknya sendiri karena bisa terdiri atas banyak fungsi yang berbeda Artinya neuronnya banyak
+[00:03:31.720 - 00:03:34.360] Kita baru belajar satu neuron saja
+[00:03:34.360 - 00:03:39.820] Di mana disebut ANN dengan dua layer
+[00:03:39.820 - 00:03:43.840] Input layernya untuk X dan output layernya baru satu
+[00:03:43.840 - 00:03:48.900] Kita bisa tambahkan beberapa output neuron yang kita hubungkan dengan input layer
+[00:03:48.900 - 00:03:51.900] Atau kita tambahkan beberapa hidden layer
+[00:03:51.900 - 00:03:57.120] Nanti output layernya akan mendapatkan input dari hidden layer yang terakhir
+[00:03:57.120 - 00:04:02.120] Nah setiap hidden layer ini nanti bisa punya beberapa neuron yang berbeda-beda
+[00:04:02.120 - 00:04:07.960] Sekarang kita lihat secara umum seperti apa arsitektur dari neural network
+[00:04:07.960 - 00:04:16.520] Seperti yang disampaikan sebelumnya bahwa terdapat sejumlah unit atau neuron pada ANN
+[00:04:16.520 - 00:04:19.820] Yang diorganisasi dalam layer-layer
+[00:04:19.820 - 00:04:21.880] Jadi batas layernya sangat jelas
+[00:04:21.880 - 00:04:28.480] Dan arsitektur juga menjelaskan hubungan antar unitnya atau antar neuronnya ini
+[00:04:28.480 - 00:04:34.040] Kita bisa lihat disini ada input layer yang terdiri atas H input neuron
+[00:04:34.040 - 00:04:37.220] Jadi satu feature menyatakan satu input neuron
+[00:04:37.220 - 00:04:42.020] Dan ada output layer yang terdiri atas M neuron
+[00:04:42.020 - 00:04:45.200] Sedangkan di tengah ini adalah H hidden layer
+[00:04:45.200 - 00:04:48.140] Jadi terdapat H layer yang merupakan hidden layer
+[00:04:48.140 - 00:04:53.060] Karena dia tidak memberikan output langsung Dia memberikan output antara Makanya disebut hidden
+[00:04:53.060 - 00:04:56.720] Hidden layer yang pertama ini terdiri atas G neuron
+[00:04:56.720 - 00:05:00.740] Sedangkan hidden layer yang ke H ini terdiri atas K neuron
+[00:05:00.740 - 00:05:07.560] Jadi setiap hidden layer bisa punya jumlah neuron yang berbeda-beda
+[00:05:07.560 - 00:05:12.840] Nah ukuran dari neural network sendiri bisa dinyatakan dalam bentuk depth dan width
+[00:05:12.840 - 00:05:17.280] Depth disini menyatakan jumlah layer-nya sedangkan width menyatakan jumlah neuronnya
+[00:05:17.280 - 00:05:24.520] Kita bisa menggambarkan arsitektur ANN itu dari kiri ke kanan seperti yang sebelumnya
+[00:05:24.520 - 00:05:27.340] Atau dari bawah ke atas seperti pada kasus ini
+[00:05:27.340 - 00:05:31.940] Jadi ini kita sebut dengan explicit style
+[00:05:31.940 - 00:05:35.520] Ada variasi yang lain yang disebut dengan compact style
+[00:05:35.520 - 00:05:38.140] Di mana kita tidak menggambarkan secara detail
+[00:05:38.140 - 00:05:40.520] Tapi cukup menggambarkan layer-nya saja
+[00:05:40.520 - 00:05:48.460] Dan kita tambahkan informasi jumlah neuronnya seperti ini Jadi intinya sama
+[00:05:48.460 - 00:05:54.680] Ada yang namanya input layer Lalu H hidden layer Dan ada output layer
+[00:05:54.680 - 00:06:00.580] Nah jumlahnya ini yang kita tadi sebut dengan depth Kemudian defaultnya
+[00:06:00.580 - 00:06:02.820] Defaultnya itu
+[00:06:02.820 - 00:06:06.580] ANN itu adalah memiliki forward link
+[00:06:06.580 - 00:06:10.560] Jadi dari input layer terhubung ke hidden layer pertama
+[00:06:10.560 - 00:06:14.720] Lalu terhubung ke hidden layer yang lain Sampai dengan output layer
+[00:06:14.720 - 00:06:20.900] Tetapi ada beberapa unit yang boleh memiliki backward link
+[00:06:20.900 - 00:06:22.980] Ini yang disebut dengan RNN
+[00:06:22.980 - 00:06:25.100] Yang tidak akan kita pelajari sekarang
+[00:06:25.100 - 00:06:28.420] Karena kita akan fokus pada feed forward neural network
+[00:06:28.420 - 00:06:31.280] RNN akan kita pelajari pada kuliah yang berbeda
+[00:06:31.280 - 00:06:34.060] Bersamaan dengan convolutional neural network
+[00:06:34.060 - 00:06:39.940] Walaupun ANN kita punya banyak variasi
+[00:06:39.940 - 00:06:42.160] Tetapi proses inferensinya
+[00:06:42.160 - 00:06:47.620] Ketika kita sudah memiliki suatu model ANN Itu tetap sama
+[00:06:47.620 - 00:06:52.740] Yaitu melakukan forward propagation Bisa dilihat pada gambar ini
+[00:06:52.740 - 00:06:57.840] Bahwa pemrosesan inferensinya Itu mulai dari input
+[00:06:57.840 - 00:07:02.260] Kemudian dilakukan pemrosesan di setiap neuron pada layer yang sama
+[00:07:02.260 - 00:07:08.060] Lalu dia baru akan maju ke layer berikutnya Setelah selesai dari layer ini
+[00:07:08.060 - 00:07:09.960] Baru maju lagi ke layer berikutnya
+[00:07:09.960 - 00:07:12.860] Hal ini dilakukan terus menerus sampai output layer
+[00:07:12.860 - 00:07:19.780] Nah inilah yang disebut dengan forward propagation Untuk setiap neuron Dilakukan pemrosesan
+[00:07:19.780 - 00:07:21.000] Seperti yang dibahas tadi
+[00:07:21.000 - 00:07:26.020] Bahwa dilakukan pemrosesan linear combination Atau dot product
+[00:07:26.020 - 00:07:28.940] Kemudian dimasukkan ke activation function
+[00:07:28.940 - 00:07:35.480] Sebagai contoh untuk inferensi artificial neural network Kita akan menggunakan XOR
+[00:07:35.480 - 00:07:43.080] XOR disini Kita estimasi Ini adalah fungsi XORnya Kita estimasi menggunakan ANN
+[00:07:43.080 - 00:07:48.740] Dengan arsitektur seperti yang ada di sebelah kiri ini Terdiri atas 2 input neuron
+[00:07:48.740 - 00:07:51.460] 1 hidden layer dengan 2 neuron
+[00:07:51.460 - 00:07:55.020] Dan 1 output layer dengan 1 neuron
+[00:07:55.020 - 00:07:59.620] Bentuk explicit style-nya seperti ini Nah kita akan
+[00:07:59.620 - 00:08:06.240] Karena kita akan fokus di inferensi Kita akan lakukan Proses inferensinya
+[00:08:06.240 - 00:08:12.980] Menggunakan koefisien yang sudah ada Jadi sama seperti sebelumnya Nanti di setiap neuron
+[00:08:12.980 - 00:08:19.720] Kecuali di input neuron Ada bagian net Kita melakukan sigma Kombinasi linear Antara W dan X
+[00:08:19.720 - 00:08:27.080] Kemudian ada bagian Fungsi aktifasinya Dalam kasus ini kita gunakan Sigmoid Ini juga sama
+[00:08:27.080 - 00:08:28.720] Kita bagi 2 ya semuanya
+[00:08:28.720 - 00:08:32.200] Begitu juga bagian output neuronnya Kita bagi 2
+[00:08:32.200 - 00:08:39.840] Nah kalau kita sudah punya koefisien Kita bisa menghitung H1
+[00:08:39.840 - 00:08:46.260] H1 itu adalah bagian linearnya dulu ya Minus 10 dikali 1
+[00:08:46.260 - 00:08:52.220] Ditambah 20 Ini kali ya Ditambah 20
+[00:08:52.220 - 00:08:56.040] X1 ditambah 20 X2
+[00:08:56.040 - 00:09:00.580] Kemudian kita masukkan ke fungsi sigmoid
+[00:09:00.580 - 00:09:07.600] Nah jangan lupa nih fungsi sigmoid suka ketinggalan Sedangkan H2 ini sama Kita hitung dulu
+[00:09:07.600 - 00:09:15.260] Berdasarkan koefisien yang kita miliki Yaitu Minus 30 Ditambah minus 20 X1
+[00:09:15.260 - 00:09:19.620] Terus ditambah dengan minus 20 X2
+[00:09:19.620 - 00:09:26.640] Ini juga menggunakan fungsi sigmoid Lalu Y Nah untuk Y ini agak berbeda Karena
+[00:09:26.640 - 00:09:33.320] Y sendiri Ini merupakan inputnya dari H1 dan H2
+[00:09:33.320 - 00:09:40.180] Sehingga ini adalah sigmoid dari Minus 30 Ditambah 20 H1
+[00:09:40.180 - 00:09:45.420] Ditambah 20 H2 Jadi persisnya jadi seperti ini
+[00:09:45.420 - 00:09:53.360] Kita mulai Dengan contoh ini Menggunakan data yang pertama Dimana
+[00:09:53.360 - 00:10:01.300] X1 nya 0 Dan X2 nya adalah 0 Ini F Ini adalah Y Label Sedangkan Y yang disini adalah
+[00:10:01.300 - 00:10:08.380] Y topi Jadi ini masih net topi Kita akan mulai menghitung H1 dulu Lalu menghitung H2
+[00:10:08.380 - 00:10:10.140] Ini bisa dilakukan secara paralel
+[00:10:10.140 - 00:10:16.900] Kalau kita bisa melakukan komputasinya secara paralel Kita hitung Net dari H1 Menggunakan
+[00:10:16.900 - 00:10:18.200] Rumus ini
+[00:10:18.200 - 00:10:25.420] Atau kita bisa lihat langsung disini Yaitu Minus 10 20 X1 Dan 20 X2 X1 dan X2 nya 0
+[00:10:25.420 - 00:10:28.340] Tinggal minus 10 Oke Kita sudah dapat minus 10
+[00:10:28.340 - 00:10:30.940] Lalu masukkan ke fungsi sigmoidnya
+[00:10:30.940 - 00:10:36.740] Fungsi sigmoid akan menghasilkan 0 Untuk nilai minus 10 Begitu juga untuk H2
+[00:10:36.740 - 00:10:39.200] H2 disini akan menghasilkan nilai 30
+[00:10:39.200 - 00:10:46.180] Lalu dia akan menghasilkan nilai H2 nya adalah 1 Sebagai hasil fungsi sigmoidnya Nah
+[00:10:46.180 - 00:10:54.060] Kemudian Kita akan masuk ke Y Setelah H1 nya didapatkan 0 Dan H2 nya adalah 1
+[00:10:54.060 - 00:11:00.620] Ini 0 Ini 1 Kita masukkan ke sini Kita dapatkan Net nya Ini adalah
+[00:11:00.620 - 00:11:02.360] Minus 10
+[00:11:02.360 - 00:11:09.940] Lalu kita masukkan ke sigmoid dari minus 10 Ini adalah 0 Sehingga prediksi Untuk data
+[00:11:09.940 - 00:11:16.780] X1 sama dengan 0 X2 sama dengan 0 Menghasilkan nilai 0 Jadi sudah sama dengan Fungsi sebenarnya
+[00:11:16.780 - 00:11:24.780] Silakan sebagai latihan Dicoba untuk 3 data yang Lainnya Sebagai alternatif lain Kita bisa
+[00:11:24.780 - 00:11:32.120] Memestimasi fungsi XOR Dengan menggunakan Fungsi aktifasi Relu dan linear
+[00:11:32.120 - 00:11:39.520] Ini adalah contohnya Disini Sama ya Input kita adalah 2 neuron Kemudian
+[00:11:39.520 - 00:11:44.640] Hidden layer kita punya 1 hidden layer Dengan 2 neuron
+[00:11:44.640 - 00:11:51.160] Dan 1 output neuron Kemudian Kita
+[00:11:51.160 - 00:11:58.720] Bisa melakukan Disini ingin ditunjukkan Hidden layer
+[00:11:58.720 - 00:12:05.680] Akan menggunakan Fungsi aktifasinya Relu Sedangkan Output layer Disini akan
+[00:12:05.680 - 00:12:13.180] Menggunakan Akan menggunakan Linear Jadi Langsung ya
+[00:12:13.180 - 00:12:20.820] Nilainya sama Ini adalah Relu itu Kepanjang dari Rectified linear unit Jadi
+[00:12:20.820 - 00:12:28.200] Ini merupakan Sebuah fungsi Yang mencari nilai Maksimum Antara 0 Atau Z Jadi tidak mungkin Menghasilkan
+[00:12:28.200 - 00:12:35.800] Output Negatif Kita akan Lihat pada Contoh kita Sudah diberikan Bobotnya Untuk
+[00:12:35.800 - 00:12:43.240] WXH Dari X ke H Sedangkan WHY Dari H ke Y Disini Biasnya
+[00:12:43.240 - 00:12:50.560] Dipisah Ini Jadinya Biasnya Ditambahkan Sebagai C Dan disini Sebagai B Nah
+[00:12:50.560 - 00:12:57.760] Pada buku Ian Goodfellow Ini Dia memberikan Dua alternatif
+[00:12:57.760 - 00:13:05.440] Kita bisa Melakukan Pemrosesan Per instance Seperti biasa Dengan kita Melakukan Transpose Bobot
+[00:13:05.440 - 00:13:12.520] Dikalikan Dengan Datanya Disini Kenapa Pakai Maksimum Seperti ini Ini karena Rumus Dari Relu
+[00:13:12.520 - 00:13:20.100] Dan Kita juga Bisa Melakukan Pemrosesan Menggunakan Batch Jadi kita
+[00:13:20.100 - 00:13:27.680] Langsung Matrix X Ini terdiri Atas beberapa Instance Langsung Diproses Menggunakan
+[00:13:27.680 - 00:13:35.440] Bobot Ini Jadi Kalau kita Lihat Kalau per instance Itu Kita Transpose Dulu W Dikalikan Dengan X
+[00:13:35.440 - 00:13:43.060] Kita Dapatkan Nilainya Sedangkan Kalau Batch Modelnya Kita Balik X Langsung
+[00:13:43.060 - 00:13:50.380] Dikalikan Dengan WXH Kemudian Hasilnya H Ini Dikalikan Dengan WHY Ditambah Dengan B
+[00:13:50.380 - 00:13:57.600] Kita Lihat Untuk X XOR Sendiri Terdiri Atas 4 instance Seperti Ini
+[00:13:57.600 - 00:14:05.580] Lalu Kita Lakukan Perkalian Biasa Per instance Atau Kita Bisa Lakukan Batch Jadi
+[00:14:05.580 - 00:14:13.500] Kalau Kita Lakukan Batch Seperti Ini Kita Menghitung X Dikalikan Dengan
+[00:14:13.500 - 00:14:20.440] WXH Kemudian Kita Hitung Maksimumnya Kita Dapatkan Matrix 4x2
+[00:14:20.440 - 00:14:26.880] Lalu Begitu Juga Untuk Yang Y Kita Dapatkan Matrix Hasilnya
+[00:14:26.880 - 00:14:33.960] 4x1 Proses Forward Propagation Dapat Digambarkan Dalam
+[00:14:33.960 - 00:14:41.800] Sudokode Berikut Ini Kita Akan Mulai Dengan Inisialisasi Nilai H0
+[00:14:41.800 - 00:14:49.220] Dengan X Karena Tidak Ada Pemprosesan Di input Layer Jadi Bisa Langsung Diisi Dengan X Lalu Dilakukan
+[00:14:49.220 - 00:14:56.860] Iterasi Untuk Layer Berikutnya Perhitungan Dimulai Dengan Menghitung A Atau Biasa Kita Sebut Dengan
+[00:14:56.860 - 00:15:04.760] Net Sebagai Hasil Perhitungan Linear Antara W Dan H Dari Layer Sebelumnya Ditambahkan Dengan Bias
+[00:15:04.760 - 00:15:12.560] Lalu Dilanjutkan Menghitung H Sebagai Hasil Fungsi Aktivasi Dari A Nah Hasil
+[00:15:12.560 - 00:15:19.640] Iterasi Terakhir Merupakan Nilai Output Dari Layer Dan
+[00:15:19.640 - 00:15:27.500] Selanjutnya Dapat Dilakukan Perhitungan Loss Kita Akan Menggunakan Contoh Dari
+[00:15:27.500 - 00:15:34.660] Kuliah Sebelumnya Untuk Menggambarkan Forward Propagation Menggunakan Sudokode Tersebut
+[00:15:34.660 - 00:15:42.340] Kita Bisa Lihat Disini Kita Akan Menggunakan Satu Instance Nilai X 0,05 Dan
+[00:15:42.340 - 00:15:50.240] 0,1 Lalu Kita Akan Melakukan Forward Propagation Mulai Dengan Inisialisasi Nilai H
+[00:15:50.240 - 00:15:57.580] Kemudian Hitung A Ini Hasil Fungsi Aktifasinya Begitu Juga
+[00:15:57.580 - 00:16:04.140] Untuk Iterasi Yang Kedua Setelah Dihitung Ternyata Nilai Loss Nya Adalah
+[00:16:04.140 - 00:16:11.340] 0,29 Suatu Arsitektur Feed Forward Neural Network Bisa
+[00:16:11.340 - 00:16:18.240] Diimplementasikan Menggunakan Keras Dengan Mudah Sebagai Suatu Model Sequential
+[00:16:18.240 - 00:16:25.800] Kemudian Setiap Layer Ditambahkan Ke Model Tersebut Jumlah
+[00:16:25.800 - 00:16:33.080] Parameter Dari Suatu Model Neural Network Penting Untuk Diketahui Pada Model Ini Terdapat
+[00:16:33.080 - 00:16:40.680] 221 Jumlah Parameter Dari Hasil Perhitungan Ini Kita Bisa Lihat Perlayernya Pun Ditampilkan Angka
+[00:16:40.680 - 00:16:48.100] 108 Ini Menyatakan Dari 8 Feature Input Ini Dihubungkan
+[00:16:48.100 - 00:16:55.980] Lengkap Atau Fully Connected Terhadap Layer Setelahnya Yang berisi 12 Neuron Maka 8 Tambah
+[00:16:55.980 - 00:17:03.960] 1 Satu Ini adalah Bias Kedua Belas Menghasilkan 108 Parameter Ini adalah Akhir Dari Video Ini
+[00:17:03.960 - 00:17:11.280] Sebagai Summary Kita Sudah Mempelajari Arsitektur Dalam Dua Style Yang Explicit Atau Compact
+[00:17:11.280 - 00:17:18.800] Kemudian Proses Forward Propagation Dalam Sudukut Yang Lebih Formal Dan Menghitung
+[00:17:18.800 - 00:17:23.360] Jumlah Parameter Berikutnya Kita Akan Mempelajari Back Propagation

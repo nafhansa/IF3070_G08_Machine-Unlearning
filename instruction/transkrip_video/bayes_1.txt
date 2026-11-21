@@ -1,0 +1,102 @@
+[00:00:00.000 - 00:00:09.000] Halo semua, kita sudah masuk di modul ketiga Bayes decision Theory.
+[00:00:09.380 - 00:00:16.280] Bersama saya Masayu, kita akan mempelajari pada video pertama ini Bayes decision Rule.
+[00:00:18.040 - 00:00:28.600] Gambar ini merupakan contoh hasil deteksi objek dengan objek yang dikenali adalah gajah dengan confidence 0,99.
+[00:00:28.600 - 00:00:36.660] Confidence ini menyatakan peluang identifikasi gajah berdasarkan fitur yang diekstrak dari objek tersebut.
+[00:00:36.660 - 00:00:45.620] Pada contoh ini masih terdapat peluang 0,01 objek tersebut diidentifikasi sebagai kelas lain.
+[00:00:46.120 - 00:00:52.620] Artinya dilakukan perhitungan peluang dari gajah dan bukan gajah.
+[00:00:52.620 - 00:01:00.480] Ini adalah contoh pengambilan keputusan dalam kasus ini klasifikasi menggunakan peluang.
+[00:01:01.240 - 00:01:06.360] Idealnya sistem klasifikasi itu memberikan hasil klasifikasi dengan benar.
+[00:01:06.940 - 00:01:13.600] Tetapi karena banyaknya variasi input yang mungkin, misklasifikasi masih mungkin terjadi.
+[00:01:13.600 - 00:01:28.280] Sebagai contoh, pada kasus perusahaan pengalengan ikan, terdapat keluhan customer mendapatkan ikan salmon di dalam kaleng sea bass.
+[00:01:28.740 - 00:01:33.500] Dan sebaliknya mendapatkan sea bass di dalam kaleng salmon.
+[00:01:33.500 - 00:01:46.440] Pihak perusahaan mengetahui bahwa customer itu akan mau menerima ikan salmon di dalam kaleng sea bass, tetapi tidak sebaliknya.
+[00:01:47.760 - 00:01:54.660] Bayes decision theory merupakan konsep bagaimana kita mendesain klasifier,
+[00:01:54.660 - 00:02:03.380] sehingga hasil klasifikasinya menghasilkan total expected risk yang minimum.
+[00:02:03.980 - 00:02:07.520] Dengan cara mendefinisikan yang namanya cost.
+[00:02:08.140 - 00:02:12.800] Hasil klasifikasi yang benar, costnya adalah 0 karena tidak ada yang dirugikan.
+[00:02:13.560 - 00:02:19.740] Tetapi hasil klasifikasi yang salah, ini dapat memiliki cost yang berbeda.
+[00:02:19.740 - 00:02:25.900] Dan ini sangat bergantung terhadap domain dari klasifikasi tersebut.
+[00:02:26.760 - 00:02:40.180] Yang dilakukan adalah melakukan kuantifikasi trade-off antara mengambil keputusan berbasiskan peruang dan cost terkait keputusan tersebut.
+[00:02:40.180 - 00:02:49.180] Bayes decision theory memiliki asumsi bahwa persoalan yang akan dimodelkan,
+[00:02:49.180 - 00:03:02.420] ini bisa direpresentasikan dalam konsep probabilistik dan nilai peluang atau nilai probabilistiknya ini diketahui.
+[00:03:02.420 - 00:03:05.420] Kita mulai dengan kelasnya.
+[00:03:05.420 - 00:03:11.680] Kelas yang mungkin, ini direpresentasikan sebagai suatu random variable,
+[00:03:11.820 - 00:03:15.800] misalnya w di sini dengan nilai adalah semua kelas yang mungkin.
+[00:03:16.900 - 00:03:20.280] Kemudian kita menggunakan formula bias,
+[00:03:21.200 - 00:03:28.740] di mana hasil keputusannya berbasiskan peluang yang disebut posterior probability.
+[00:03:28.740 - 00:03:42.520] Kemudian terdapat prior probability yang menyatakan nilai probabilitas yang seseorang yakini benar untuk setiap kelas.
+[00:03:43.460 - 00:03:50.940] Dan ada yang namanya class conditional probability atau disebut peluang bersyarat.
+[00:03:50.940 - 00:03:59.560] Menyatakan peluang pola dengan nilai X tertentu merupakan pola dari kelas Wi.
+[00:04:00.640 - 00:04:15.000] Dan terakhir adalah marginal probability yang menyatakan faktor skala yang menjamin bahwa posterior probability itu jika dijumlahkan sama dengan 1.
+[00:04:15.000 - 00:04:24.000] Jika X merepresentasikan fitur satu dimensi dan W merepresentasikan kelas binar,
+[00:04:24.800 - 00:04:33.300] kemudian diketahui bahwa terdapat kelas conditional probability dalam bentuk grafik seperti ini,
+[00:04:33.660 - 00:04:39.000] kita bisa mengetahui untuk nilai X tertentu berapa peluang X given kelasnya.
+[00:04:39.000 - 00:04:41.000] Kita mengetahui prior probabilitynya.
+[00:04:41.000 - 00:04:46.000] Lalu kita mengetahui prior probabilitynya.
+[00:04:47.800 - 00:04:53.240] Untuk dua kelas seperti ini, jika dijumlahkan prior probability pun harus sama dengan 1.
+[00:04:53.920 - 00:04:59.480] Dengan dua informasi ini, kita bisa menghitung posterior probabilitynya.
+[00:04:59.480 - 00:05:05.220] Nah, pada posterior probability, ini kan menyatakan peluang Wi given X.
+[00:05:05.620 - 00:05:10.520] Artinya untuk suatu nilai X tertentu, misalnya untuk suatu nilai di sini,
+[00:05:11.840 - 00:05:20.540] maka kita akan bisa mendapatkan peluang Wi1 given X dan peluang Wi2 given X yang jika dijumlahkan harus sama dengan 1.
+[00:05:21.840 - 00:05:25.160] Bios decision rule akan kita pelajari dalam dua bagian.
+[00:05:25.160 - 00:05:29.580] Bagian yang pertama ini menggunakan posterior probability.
+[00:05:30.380 - 00:05:34.240] Jadi, rulenya akan meminimumkan peluang error.
+[00:05:34.840 - 00:05:44.460] Bagian pertama ini sudah umum digunakan, yaitu mengambil kelas yang memiliki posterior probability paling tinggi.
+[00:05:45.340 - 00:05:49.200] Bagian yang kedua berbasiskan conditional risk.
+[00:05:49.940 - 00:05:53.320] Rule yang dilakukan meminimumkan overall risk.
+[00:05:53.320 - 00:06:02.400] Pada bagian ini akan diperkenalkan adanya aksi yang memiliki relasi dengan hasil klasifikasi.
+[00:06:02.940 - 00:06:07.220] Sehingga kita bisa menghitung risk dari suatu aksi.
+[00:06:08.140 - 00:06:12.320] Pengambilan keputusannya dilakukan berdasarkan likelihood ratio,
+[00:06:13.140 - 00:06:18.760] yang merupakan rasio dari conditional probability antar kedua kelas.
+[00:06:18.760 - 00:06:31.320] Sedangkan threshold value-nya ini merupakan hasil perkalian antara rasio loss dengan rasio dari prior probability.
+[00:06:31.720 - 00:06:36.460] Nanti kita akan bahas bagian yang kedua ini di video berikutnya.
+[00:06:37.040 - 00:06:45.680] Sekarang kita akan mereview dulu tentang Bayes decision rule untuk posterior dengan posterior probability.
+[00:06:45.680 - 00:06:51.960] Kita akan lihat Bayes decision rule yang menggunakan conditional probability.
+[00:06:53.080 - 00:07:02.280] Jadi pada kasus X itu hanya satu dimensi, kemudian kelasnya, kelas W itu hanya ada dua,
+[00:07:02.280 - 00:07:15.660] maka aturannya adalah kita akan memberikan hasilnya sebagai kelas W1 jika peluang W1 given X itu lebih besar daripada peluang W2 given X.
+[00:07:16.160 - 00:07:19.420] Jika tidak, maka kelasnya adalah W2.
+[00:07:19.420 - 00:07:30.520] Nah, berdasarkan aturan bias kita bisa mengubah PWE given X itu adalah PX given WI dikali PWE dibagi dengan PX.
+[00:07:30.660 - 00:07:35.820] Ini dikenal dengan likelihood dikali dengan prior dibagi dengan evidence.
+[00:07:36.220 - 00:07:44.220] Nah, di sini bagian evidence-nya, karena kita membandingkan PW1 given X dan PW2 given X,
+[00:07:44.220 - 00:08:07.000] bagian evidence-nya bisa kita abaikan, maka kita akan membuat aturannya menjadi kita akan memberikan kelas W1 jika peluang dari X given W1 dikali dengan peluang W1-nya sendiri itu lebih besar dari peluang X given W2 dikali dengan peluang W2.
+[00:08:07.000 - 00:08:11.940] Jika tidak, maka berikanlah kelas W2 sebagai hasilnya.
+[00:08:12.880 - 00:08:19.540] Sebagai contoh, misalkan kita ingin menghitung untuk input data X sama dengan 10,
+[00:08:20.500 - 00:08:30.320] kemudian kita ketahui prior probability-nya peluang W1-nya adalah 2 per 3 dan peluang W2-nya adalah 1 per 3.
+[00:08:30.320 - 00:08:46.400] Kondisional probability yang kita dapatkan adalah peluang X sama dengan 10 given W1 adalah 0,08 dan peluang X sama dengan 10 given W2 adalah 0,14.
+[00:08:46.400 - 00:08:56.760] maka perhitungan posterior posterior conditional probability bisa dilakukan dengan mengabaikan evidence-nya,
+[00:08:56.940 - 00:09:02.160] kita hanya melakukan perkalian antara conditional probability dan prior-nya.
+[00:09:02.660 - 00:09:14.080] Kita bisa hitung peluang W1 given X sama dengan 10 itu adalah 0,054 dan peluang W2 given X sama dengan 10 adalah 0,046.
+[00:09:14.080 - 00:09:23.300] Karena peluang W1 given X sama dengan 10 lebih besar daripada peluang W2 given X sama dengan 10,
+[00:09:23.840 - 00:09:27.060] maka decision-nya adalah kelas W1.
+[00:09:28.420 - 00:09:33.480] Sekarang kita akan lihat contohnya, kita akan aplikasikan untuk klasifikasi ikan.
+[00:09:34.160 - 00:09:37.820] Misalkan kita sudah memiliki image dataset yang berlabel,
+[00:09:38.460 - 00:09:42.960] sebagai contoh kita sudah melabeli mana ikan sea bass dan mana ikan Salmon.
+[00:09:42.960 - 00:09:52.760] Maka kita memiliki suatu random variable W di mana nilai W1-nya bisa sea bass dan W2-nya adalah Salmon.
+[00:09:53.260 - 00:09:58.220] Setiap data ini memiliki total N1 dan total N2.
+[00:09:58.220 - 00:10:11.460] Lalu kita bisa menghitung prior probability yang menyatakan peluang ikan berikutnya yang diobservasi itu adalah WI.
+[00:10:11.900 - 00:10:17.880] Maka peluang W1 itu adalah N1 dibagi N1 plus N2 dan begitu juga peluang W2.
+[00:10:17.880 - 00:10:23.920] Kita akan menggunakan feature lightness untuk klasifikasi ikan ini.
+[00:10:24.080 - 00:10:30.340] Kita mulai dengan menghitung conditional probability density P(X given W_i).
+[00:10:30.340 - 00:10:40.420] Kita gunakan rumus conditional probability biasa, yaitu P(X given W_i) adalah P(X, W_i) dibagi dengan P(W_i).
+[00:10:40.420 - 00:10:49.500] P(X, W_i) sendiri, peluang X dan W_i, adalah count(X, W_i) dibagi dengan total data.
+[00:10:50.000 - 00:10:54.620] Begitu juga P(W_i) ini adalah N_i dibagi total data.
+[00:10:54.820 - 00:11:06.020] Karena sama-sama dibagi dengan total data, maka kita bisa sederhanakan menjadi P(X given W_i) adalah count(X, W_i) dibagi dengan N_i.
+[00:11:05.920 - 00:11:15.220] count X, Wi pada contoh ini bisa kita lihat untuk X sama dengan 1 dan Salmon, count-nya adalah 8
+[00:11:15.220 - 00:11:22.700] Sedangkan untuk X sama dengan 1 dan sea bass, count-nya adalah 0
+[00:11:22.700 - 00:11:32.480] Sekarang kita akan gunakan untuk contoh X berada pada interval 5 sampai 5,5 yaitu daerah ini
+[00:11:32.480 - 00:11:39.440] kita bisa dapatkan bahwa dari perhitungan peluang
+[00:11:39.440 - 00:11:46.580] W sama peluang salmon itu adalah 74 dibagi total data
+[00:11:46.580 - 00:11:51.760] yaitu 0,56 peluang sea bass-nya sendiri adalah 0,43
+[00:11:51.760 - 00:11:59.600] peluang X untuk range atau untuk interval 5 sampai 5,5
+[00:11:59.600 - 00:12:02.180] given salmon itu adalah
+[00:12:02.180 - 00:12:11.580] Di sini bisa kita lihat salmon untuk nilai yang ada di sini, ini adalah 4 dibagi dengan total salmon yaitu 74.
+[00:12:12.400 - 00:12:19.560] Begitu juga untuk yang peluang X given sea bass 0,053. kemudian untuk menentukan
+[00:12:19.560 - 00:12:27.500] untuk menentukan kelas dari ikan dalam range x
+[00:12:27.500 - 00:12:31.020] 5 sampai 5,5 ini kita akan menghitung posterior
+[00:12:31.020 - 00:12:34.020] conditional probability peluang wi
+[00:12:34.020 - 00:12:37.180] given x, tetapi sesuai dengan yang dijelaskan
+[00:12:37.180 - 00:12:43.380] tadi kita cukup menghitung px given wi dikali pwi, setelah kita hitung
+[00:12:43.380 - 00:12:54.000] Di sini kita dapatkan peluang salmon given X itu adalah 0,03, peluang sea bass given X itu adalah 0,02.
+[00:12:54.540 - 00:13:06.260] Karena salmon lebih besar peluangnya daripada sea bass, maka kita menentukan decisionnya adalah salmon untuk nilai X 5 sampai 5,5.
+[00:13:06.020 - 00:13:27.060] Untuk mengakhiri video ini kita bisa summarikan bahwa kita sudah mempelajari Bayes decision theory di mana terdapat Bayes decision rule yang menggunakan peluang kondisional atau conditional probability dan kita menggunakan contoh untuk klasifikasi ikan
+[00:13:27.060 - 00:13:33.060] Berikutnya kita akan membahas di video minimum risk Bayes decision rule

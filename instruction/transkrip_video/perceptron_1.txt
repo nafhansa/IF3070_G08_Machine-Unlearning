@@ -1,0 +1,103 @@
+[00:00:00.000 - 00:00:12.880] Halo semua, bersama saya Masayu. Kita akan membahas modul artificial neural network.
+[00:00:13.440 - 00:00:18.380] Terdapat beberapa materi yang akan kita bahas pada artificial neural network ini.
+[00:00:19.140 - 00:00:25.680] Mulai dari apa itu perceptron dan bagaimana cara kerjanya, yaitu yang akan dibahas pada video ini.
+[00:00:25.680 - 00:00:36.240] Lalu berikutnya kita juga akan membahas tentang multilayer perceptron dan algoritma backpropagation pada video yang lain.
+[00:00:36.900 - 00:00:43.960] Oke, kita akan mulai saja video pertama ini tentang bagaimana cara kerja perceptron.
+[00:00:45.180 - 00:00:52.860] Perceptron merupakan salah satu linear model yang efektif pada linearly separable dataset.
+[00:00:52.860 - 00:01:07.540] Karena merupakan linear model, terdiri atas dua bagian, yaitu hasil perkalian vektor W dengan X, W ini adalah vektor bobot, X ini adalah inputnya, lalu hasilnya dimasukkan ke decision rule berupa fungsi sign.
+[00:01:08.400 - 00:01:18.220] Kalau kita gambarkan seperti ini, ini adalah vektor X dengan D dimensi, lalu ada vektor bobot dengan D plus 1 dimensi.
+[00:01:18.220 - 00:01:29.220] Kemudian kita lakukan perkalian antara kedua vektor, vektor X ini ditambah satu bias ya, lalu hasilnya dimasukkan ke fungsi sign.
+[00:01:29.700 - 00:01:35.460] Sign akan menghasilkan plus 1 jika hasil perkaliannya lebih besar dari 0, jika tidak minus 1.
+[00:01:35.740 - 00:01:40.620] Oleh karena itu hasilnya berupa nilai diskret minus 1 atau plus 1.
+[00:01:40.620 - 00:01:44.620] Perceptron juga merupakan simple neural network.
+[00:01:44.780 - 00:01:55.860] ANN itu biasanya terdiri atas tiga jenis layer, yaitu input layer, ini punya ya, input layernya berupa input data seperti ini.
+[00:01:56.840 - 00:02:02.320] Kemudian hidden layer ini tidak ada di perceptron, yang ada adalah output layer dengan satu neuron.
+[00:02:02.320 - 00:02:13.480] Kemudian learning outputnya, modelnya itu berupa bobot W, yang merupakan atau memiliki domain bilangan real di D plus 1 dimensi.
+[00:02:13.480 - 00:02:25.280] Oleh karena itu ruang pencariannya pun adalah semua nilai yang berada, semua vektor yang domainnya adalah real dengan D plus 1 dimensi.
+[00:02:25.280 - 00:02:39.280] Model linear itu bisa juga disebut model geometrik, karena dia merepresentasikan hyperplane decision surface pada bidang n dimensi.
+[00:02:40.040 - 00:02:49.280] Kalau kita lihat, untuk dua feature seperti ini, maka hyperplane kita itu berupa garis.
+[00:02:49.280 - 00:02:58.060] Jika pada tiga feature atau tiga dimensi, maka hyperplane kita akan berupa bidang.
+[00:02:58.840 - 00:03:09.040] Oleh karena itu, ketika ada n feature atau n dimensi, maka hyperplane kita ini merupakan berdimensi n-1.
+[00:03:10.740 - 00:03:17.240] Contoh fungsi yang dengan mudah direpresentasikan oleh perceptron ini adalah fungsi m of n.
+[00:03:17.240 - 00:03:31.680] M of n itu adalah fungsi bolehan, di mana fungsi ini akan menghasilkan nilai true jika setidaknya terdapat m input yang bernilai true juga, dengan total input adalah n.
+[00:03:32.520 - 00:03:37.440] Sebagai contoh kasus, n itu memiliki nilai m sama dengan n.
+[00:03:38.080 - 00:03:40.720] Or itu memiliki nilai m sama dengan 1.
+[00:03:40.720 - 00:03:48.240] Ini adalah contoh dari perceptron untuk fungsi n dan fungsi or.
+[00:03:49.040 - 00:03:53.700] Bagaimana caranya perceptron bisa merepresentasikan m of n function ini?
+[00:03:54.020 - 00:04:04.560] Yang pertama, dia akan set semua input, dia akan set semua bolehan, kecuali w 0 dengan nilai yang sama.
+[00:04:04.560 - 00:04:06.020] Bebas, terserah.
+[00:04:06.180 - 00:04:10.320] Di sini misalnya ini contohnya 1, atau kita bisa menggunakan setengah.
+[00:04:10.940 - 00:04:13.320] Lalu kita tinggal adjust nilai w 0-nya.
+[00:04:14.160 - 00:04:17.080] Nah, sebagai latihan nanti kita diskusikan di kelas,
+[00:04:17.620 - 00:04:24.860] kalian buktikan bahwa perceptron dengan w 0 sama dengan minus 0,8,
+[00:04:25.180 - 00:04:30.560] dan w 1 sama dengan w 2 sama dengan 0,5 itu merepresentasikan fungsi n.
+[00:04:30.560 - 00:04:33.020] Ini akan kita bahas di kelas bersama-sama.
+[00:04:33.020 - 00:04:38.700] Untuk algoritma pembelajarannya, terdapat 3 algoritma yang akan kita pelajari.
+[00:04:39.240 - 00:04:44.000] Tetapi untuk video ini kita pelajari dulu yang pertama, yaitu perceptron training rule.
+[00:04:44.540 - 00:04:54.000] Perceptron training rule ini terbukti akan konvergen jika training datanya itu merupakan linearly separable data,
+[00:04:54.380 - 00:04:57.260] dan learning rate-nya itu cukup kecil.
+[00:04:58.180 - 00:05:01.240] Untuk yang lainnya kita akan bahas di video yang lain ya.
+[00:05:03.020 - 00:05:08.780] Terdapat 2 input yang dibutuhkan oleh perceptron training rule, yaitu D,
+[00:05:09.440 - 00:05:13.240] yaitu training data, dan learning rate yang cukup kecil.
+[00:05:13.900 - 00:05:19.820] Kita akan mulai dengan data set kita yang terdiri atas 2 data, dengan 3 feature,
+[00:05:20.960 - 00:05:24.820] kemudian learning rate-nya adalah 0,1.
+[00:05:24.820 - 00:05:29.840] Kita akan mulai dengan menginisialisasi secara random,
+[00:05:30.640 - 00:05:34.120] bobot W, kita inisialisasi semua dengan 0,
+[00:05:35.120 - 00:05:39.700] kemudian kita akan melakukan proses iterasi.
+[00:05:41.300 - 00:05:45.460] Kita inisialisasi dulu, E sama dengan 0,
+[00:05:45.580 - 00:05:49.740] E ini menyatakan error untuk epoch pertama ya.
+[00:05:49.740 - 00:05:57.800] Kemudian kita lakukan proses secara berurutan untuk semua instance.
+[00:05:58.040 - 00:05:59.580] Pada contoh ini,
+[00:06:00.080 - 00:06:02.640] atau pada perceptron training rule,
+[00:06:03.100 - 00:06:08.440] tidak ada aturan untuk memilih instance secara random.
+[00:06:08.440 - 00:06:13.440] Tetapi jika akan dilakukan, sepertinya tidak ada masalah.
+[00:06:14.900 - 00:06:19.320] Kemudian kita akan proses satu persatu. Kita bisa lihat di sini,
+[00:06:19.580 - 00:06:22.660] kita harus menghitung dulu nilai OI,
+[00:06:24.040 - 00:06:25.360] output yang ke I,
+[00:06:26.140 - 00:06:28.900] yang merupakan nilai prediksi untuk X,
+[00:06:29.520 - 00:06:32.440] menggunakan berdasarkan bobot W.
+[00:06:32.440 - 00:06:40.100] Kemudian kalau nilai OI itu sama dengan labelnya, tidak melakukan apapun,
+[00:06:40.620 - 00:06:42.240] jika berbeda,
+[00:06:42.360 - 00:06:49.740] barulah kita update seperti ini. Baru kita hitung errornya. Baik, kita lihat ya contohnya.
+[00:06:50.500 - 00:06:50.780] Jadi,
+[00:06:52.140 - 00:06:57.680] kita mulai dengan data pertama, 101 dengan label min 1.
+[00:06:58.420 - 00:07:05.960] Ketika kita hitung OI-nya, output yang ke I, maka dia menghasilkan minus 1. Karena sama, do nothing.
+[00:07:06.920 - 00:07:14.320] Kemudian data yang kedua. Data yang kedua ini adalah 0, min 1, min 1, hasilnya adalah plus 1.
+[00:07:14.640 - 00:07:21.560] Atau labelnya, labelnya adalah plus 1. Kalau kita hitung OI, ini adalah hasil dari sign,
+[00:07:21.980 - 00:07:24.060] hasil perkaliannya masih semua 0,
+[00:07:24.660 - 00:07:26.620] kemudian kita menghasilkan minus 1.
+[00:07:26.620 - 00:07:29.780] Karena berbeda antara plus 1 dan minus 1, kita akan update.
+[00:07:29.780 - 00:07:35.180] W0 itu adalah WJ yang sebelumnya, yaitu 0.
+[00:07:35.840 - 00:07:42.120] Kemudian ditambah dengan learning rate, lalu dikalikan dengan
+[00:07:42.120 - 00:07:44.420] YI-nya adalah plus 1,
+[00:07:45.140 - 00:07:53.100] kemudian dikurang dengan OI-nya adalah minus 1, dikalikan dengan XIC. Nah, untuk kasus ini,
+[00:07:53.300 - 00:08:00.000] untuk W01, W1 itu kita ambil, X-nya adalah 0,
+[00:08:00.140 - 00:08:07.900] nanti untuk W2 minus 1, dan W3 adalah minus 1. Sehingga setelah kita hitung,
+[00:08:08.000 - 00:08:10.300] kita dapatkan bobot ini. Nah,
+[00:08:11.300 - 00:08:18.220] langkah selanjutnya adalah menghitung error. Errornya adalah E sama, errornya adalah, error sebelumnya 0,
+[00:08:18.220 - 00:08:23.100] ditambah dengan YI kita tadi, adalah plus 1,
+[00:08:23.340 - 00:08:30.900] dikurang dengan OI-nya adalah minus 1. Sehingga, ini adalah 2 kuadrat, dibagi 2, yaitu 2.
+[00:08:32.900 - 00:08:40.080] Nah, setelah, karena sudah selesai semua, kita sudah menyelesaikan, ke sini, artinya,
+[00:08:40.780 - 00:08:48.620] kita ke sini, E-nya masih 2, lalu kita melakukan, Epoch berikutnya. Nah, pada saat melakukan,
+[00:08:48.800 - 00:08:56.760] Epoch berikutnya, jangan lupa, kita harus, inisialisasi kembali, errornya. Ini dilakukan, sampai nilai error,
+[00:08:56.880 - 00:09:03.540] sama dengan 0. Dan, pada algoritma ini, dijamin akan konvergen, yaitu, berhenti di,
+[00:09:04.080 - 00:09:11.720] error sama dengan 0, jika datanya adalah, linearly separable. sebagai contoh,
+[00:09:11.860 - 00:09:19.280] untuk perhitungan, Perceptron Training Rule, kita bisa, menggunakan data,
+[00:09:19.880 - 00:09:27.700] 3 instance, seperti ini, kemudian, kita gunakan, representasi labelnya, minus 1 dan plus 1,
+[00:09:28.420 - 00:09:35.580] lalu, kita akan mengupdate, bobot, W0, W1, dan W3.
+[00:09:38.740 - 00:09:45.920] Ini adalah, hasil perhitungannya, kita bisa lihat tadi, pada contoh,
+[00:09:46.120 - 00:09:52.660] perhitungan yang kita lakukan, kita menghitung, dengan 2 data, sampai di sini, sehingga mengupdate,
+[00:09:52.800 - 00:09:58.340] kita dapatkan, 0,2, 0, dan minus 0,2, minus 0,2.
+[00:09:59.820 - 00:10:06.520] Kemudian, kita lakukan, kemudian, kita dapat, kemudian,
+[00:10:06.860 - 00:10:14.560] ini digunakan, untuk data yang ketiga, data yang ketiga, lalu, kita dapatkan, sign-nya adalah,
+[00:10:14.720 - 00:10:22.340] 1, sehingga, sama, tidak melakukan apapun, error kita, tetap 2, karena error 2, dan ini adalah,
+[00:10:22.440 - 00:10:30.180] bobot yang terakhir, ya, karena error kita, adalah 2, kita masuk ke, epoch kedua, atau iterasi kedua,
+[00:10:30.460 - 00:10:36.020] ini dilakukan, dan kita lihat, di sini, pada iterasi kedua, dia, konvergen,
+[00:10:36.020 - 00:10:42.920] sebagai penutup, kita telah mempelajari, bahwa, perceptron itu, juga merupakan, linear model,
+[00:10:43.840 - 00:10:50.140] dan, dia merepresentasikan, hyperplane decision surface, jadi, kalau ada, n feature, maka, hyperplane-nya,
+[00:10:50.260 - 00:10:57.240] berdimensi, n minus 1, lalu, perceptron dengan mudah, merepresentasikan, fungsi, m of n, apa itu,
+[00:10:57.320 - 00:11:03.720] fungsi m of n, kalian bisa, ingat-ingat kembali, m di sini, menyatakan, banyaknya, nilai, yang harus,
+[00:11:03.720 - 00:11:10.460] nilai true, dari n input, supaya, fungsinya, menghasilkan nilai true, kemudian, untuk,
+[00:11:10.940 - 00:11:17.420] pembelajarannya, kita telah mempelajari, perceptron training rule, untuk, algoritma, pembelajaran,
+[00:11:17.500 - 00:11:23.540] perceptron yang lain, yaitu, batch dan stochastic, gradient descent, akan kita pelajari, pada pertemuan,
+[00:11:23.680 - 00:11:24.260] berikutnya,

@@ -1,0 +1,96 @@
+[00:00:00.000 - 00:00:17.860] Halo semua, bersama saya Masayu. Kita akan lanjutkan pembahasan modul logistic regression untuk bagian pembelajarannya dengan menggunakan stochastic gradient ascent.
+[00:00:19.080 - 00:00:25.820] Kita mulai video ini dengan mereview dulu apa yang sudah kita pelajari terkait logistic regression.
+[00:00:25.820 - 00:00:43.120] Jadi fungsi estimasi dari fungsi target kita berupa persamaan Y-hat sama dengan hasil perkalian antara vektor B dengan X yang menyatakan log odds dari peluang sukses.
+[00:00:43.120 - 00:00:48.120] Jadi odds itu adalah rasio antara peluang sukses dibagi peluang gagal.
+[00:00:48.120 - 00:00:58.700] Kemudian peluangnya sendiri ini menyatakan untuk kasus klasifikasi peluang kondisional Y sama dengan 1 given X dan B.
+[00:00:59.160 - 00:01:05.120] Artinya kita memasukkan hasil perhitungan Y-hat ke dalam fungsi logistik.
+[00:01:05.120 - 00:01:09.260] Kita bisa ilustrasikan seperti ini.
+[00:01:09.800 - 00:01:16.940] Inputnya adalah X dengan D dimensi ditambah X0 itu adalah bernilai 1.
+[00:01:17.900 - 00:01:24.060] Kemudian di sini kita punya vektor B sebanyak D plus 1 juga.
+[00:01:24.900 - 00:01:27.940] Lalu kita bisa hitung nilai netnya atau nilai sigma-nya.
+[00:01:28.240 - 00:01:31.960] Hasil perkalian B kali X yang tadinya kita sebut dengan Y-hat.
+[00:01:31.960 - 00:01:38.500] Lalu nilai Y-hat ini kita masukkan ke logistik function sehingga menghasilkan nilai P.
+[00:01:38.760 - 00:01:48.160] Kemudian kita menggunakan decision rule yaitu kalau P lebih besar sama dengan 0,5 itu adalah kelas 1.
+[00:01:48.600 - 00:01:53.560] Jika tidak maka dia kelas min 1. Ini adalah kelasnya.
+[00:01:53.560 - 00:02:04.140] Kadang logistik atau logistik function itu disebut juga sigmoid yang direpresentasikan seperti ini.
+[00:02:04.140 - 00:02:12.600] Untuk proses trainingnya logistik regression itu menggunakan pendekatan maksimum likelihood estimator.
+[00:02:12.600 - 00:02:27.560] Jadi kalau kita punya secara formal ya kalau kita punya n instance pada data set kita yang kita lakukan untuk mencari koefisien itu memaksimumkan yang namanya log join conditional likelihood.
+[00:02:27.560 - 00:02:42.960] Jadi yang kita lakukan menghitung dulu yang namanya LCL sebagai sigma ini semua data maksudnya semua instance log dari likelihood setiap instance.
+[00:02:43.280 - 00:02:52.460] Jadi disini kita ingin peluang dari label yang benar itu paling tinggi ketika dijumlahkan dia harus maksimum.
+[00:02:52.460 - 00:02:56.880] Nah ini bisa kita jadikan persamaannya dibagi dua suku.
+[00:02:57.400 - 00:03:05.000] Pertama ini untuk data yang labelnya 1. Ini nilainya adalah log P.I.
+[00:03:05.440 - 00:03:08.240] Nilai likelihoodnya adalah log P.I.
+[00:03:08.500 - 00:03:13.520] Sedangkan untuk yang nilai labelnya adalah 0 log 1 dikurang P.I.
+[00:03:13.520 - 00:03:20.520] Lalu persamaan ini kemudian kita turunkan terhadap setiap koefisien yang sedang kita cari.
+[00:03:20.520 - 00:03:27.560] Yaitu dengan menjumlahkan hasil perkalian error. Ini YI dikurang P.I.
+[00:03:27.680 - 00:03:29.440] YI ini adalah nilai sebenarnya.
+[00:03:30.160 - 00:03:33.580] Pada label P.I ini adalah estimasi.
+[00:03:33.740 - 00:03:37.180] Peluang estimasinya dikalikan dengan nanti X.I.C.
+[00:03:37.520 - 00:03:41.820] Nanti kita lihat contohnya ya pada slide berikutnya. Nah yang kita gunakan.
+[00:03:42.280 - 00:03:46.100] Jadi maksimum likelihood estimator ini merupakan pendekatan.
+[00:03:46.100 - 00:03:56.960] Kemudian yang kita gunakan untuk mencarinya dilakukan stochastic gradient ascent yang merupakan local search.
+[00:03:57.200 - 00:04:00.320] Jadi kita akan melakukan inisialisasi dulu.
+[00:04:00.640 - 00:04:07.240] Lalu kita cari nilai koefisien yang bisa meningkatkan nilai log likelihood.
+[00:04:07.240 - 00:04:14.040] Nah kita jangan lupa karena ini stochastic kita akan memilih example-nya secara random.
+[00:04:14.040 - 00:04:22.820] Proses update bobotnya dilakukan dengan melakukan pada setiap iterasinya.
+[00:04:23.060 - 00:04:29.320] B.J ini adalah bobot yang ke C. Itu adalah B.J sebelumnya.
+[00:04:29.420 - 00:04:31.860] Pada iterasi sebelumnya ditambah dengan.
+[00:04:32.380 - 00:04:37.480] Ini adalah nilai parameter dari learning rate.
+[00:04:37.480 - 00:04:41.480] Ini biasanya kecil nilainya antara 0 sampai 1.
+[00:04:42.140 - 00:04:44.220] Kemudian ini adalah nilai errornya.
+[00:04:44.360 - 00:04:46.720] YI dikurang PI dikali dengan XIJ.
+[00:04:47.940 - 00:04:54.640] Detailnya kalian bisa baca modu LKAN yang diberikan pada slide ini.
+[00:04:56.200 - 00:04:59.920] Algoritma stochastic gradient ascent ini membutuhkan tiga parameter.
+[00:05:00.340 - 00:05:04.180] Yaitu D, kemudian T, dan learning rate.
+[00:05:04.180 - 00:05:10.000] Untuk kasus kita, kita biar mudah membatasi dengan dua instance.
+[00:05:10.180 - 00:05:14.300] Yang satu berlabel 0 dan satu berlabel 1. Jumlah iterasinya satu saja.
+[00:05:15.680 - 00:05:21.420] Kemudian nilai learning rate-nya adalah 0,1. Kita akan mulai proses pertama.
+[00:05:22.140 - 00:05:23.780] Menginisialisasi nilai B.
+[00:05:24.460 - 00:05:26.400] Inisialisasi dengan B, dengan 0.
+[00:05:26.540 - 00:05:31.580] Ini juga boleh diisi dengan nilai yang lain. Tapi biasanya kita gunakan 0.
+[00:05:31.580 - 00:05:39.840] Kemudian kita lakukan iterasinya untuk T sama dengan 1 sampai dengan maksimum iterasi.
+[00:05:39.960 - 00:05:41.840] Kita akan mulai untuk T sama dengan 1.
+[00:05:42.700 - 00:05:49.220] Lalu untuk setiap instance, ini harus dipilih secara random ya, tidak boleh berurutan.
+[00:05:49.820 - 00:05:56.820] Maka kita akan menghitung nilai prediksi dan kemudian jika bukan merupakan missing value,
+[00:05:56.820 - 00:06:00.820] kita update nilai bobotnya. Seperti ini.
+[00:06:01.920 - 00:06:09.500] Kita pilih dulu misalnya secara random, oh instance kedua dulu yang akan kita proses. Kita hitung nilai P-nya.
+[00:06:09.840 - 00:06:11.900] Kita dapatkan 0,5.
+[00:06:12.620 - 00:06:20.220] Lalu kita update nilai B0-nya, yaitu nilai B0 sebelumnya, yang ada di sini. Ini 0.
+[00:06:20.620 - 00:06:28.300] Kemudian ditambah dengan hasil perkalian, learning rate 0,1. Ini nilai labelnya, yi.
+[00:06:28.860 - 00:06:30.800] Nilainya 1, didapatkan dari sini.
+[00:06:31.700 - 00:06:39.140] Kemudian 0,5 ini adalah prediksi yang sebelumnya kita hitung. Kemudian dikalikan 1. 1 ini adalah nilai bias.
+[00:06:39.140 - 00:06:46.540] Jadi, x2 ini, faktornya adalah 1, 62, dan 58.
+[00:06:46.540 - 00:06:52.880] Sehingga B0 kita update menjadi 0,05. Untuk B1 juga begitu.
+[00:06:53.580 - 00:06:57.180] Ini adalah nilai sebelumnya, ditambah dengan learning rate,
+[00:06:57.740 - 00:07:03.000] dikali dengan Yi, yaitu 1, dikurang dengan Pi, yaitu 0,5,
+[00:07:03.240 - 00:07:09.680] dikali dengan ini B1, maka ini adalah feature yang pertama, yaitu 62.
+[00:07:10.100 - 00:07:13.800] Sehingga diupdate menjadi 3,1. Begitu juga B2.
+[00:07:13.800 - 00:07:21.540] Setelah selesai, maka kita lakukan loop lagi untuk mengambil example atau instance berikutnya.
+[00:07:21.700 - 00:07:23.740] Sekarang instance pertama yang belum diproses.
+[00:07:24.380 - 00:07:30.560] Lalu kita hitung peluangnya, didapatkan peluangnya. Lalu kita update lagi.
+[00:07:31.060 - 00:07:33.640] B0, B1, dan B2.
+[00:07:33.800 - 00:07:39.800] Ini dilakukan setelah sampai semua example diproses.
+[00:07:39.800 - 00:07:49.920] Lalu jika selesai, maka kita setelah selesai di sini, kita kembali ke iterasi berikutnya.
+[00:07:50.320 - 00:07:53.840] Kemudian setelah selesai sampai iterasi yang ke T,
+[00:07:54.380 - 00:07:59.740] kita kembalikan nilai B, faktor yang terakhir ini, sebagai hasil akhir.
+[00:07:59.740 - 00:08:05.860] Nah, biasanya di dalam library, istilah iterasi ini disebut dengan epoch.
+[00:08:06.280 - 00:08:08.480] Artinya pemrosesan satu dataset.
+[00:08:08.740 - 00:08:11.960] Semua example pada dataset itu sudah diproses.
+[00:08:11.960 - 00:08:20.460] Setelah kita mendapatkan nilai koefisiennya, yaitu B0, B1, dan B2.
+[00:08:20.960 - 00:08:26.640] Di sini, kita bisa menggunakannya untuk melakukan prediksi.
+[00:08:26.820 - 00:08:33.160] Misalnya kita punya data training kita akan diprediksi hasilnya. Kita lakukan untuk X1 dan X2.
+[00:08:33.340 - 00:08:34.680] Hitung nilai peluangnya.
+[00:08:34.800 - 00:08:36.820] Jangan lupa dimasukkan ke fungsi logistik ya.
+[00:08:37.640 - 00:08:40.140] Di sini didapatkan kelasnya sama-sama 0.
+[00:08:40.140 - 00:08:44.540] Untuk data satu, kelasnya memang 0. Jadi ini benar.
+[00:08:44.960 - 00:08:49.080] Untuk data yang kedua, kelasnya seharusnya 1. Jadi ini adalah salah.
+[00:08:49.820 - 00:08:53.860] Oleh karena itu, akurasi trainingnya adalah 50%.
+[00:08:53.860 - 00:08:56.900] Kita sudah menyelesaikan video ini.
+[00:08:56.900 - 00:09:01.300] Jadi ini adalah logistik regression secara umum.
+[00:09:01.440 - 00:09:03.320] Sudah kita pelajari pada video pertama.
+[00:09:04.180 - 00:09:08.880] Dan modelnya itu berupa koefisien dari B.
+[00:09:08.880 - 00:09:13.340] Yang jumlahnya sebanyak D plus 1 D.
+[00:09:13.660 - 00:09:15.960] Di sini adalah dimensi dari variable X.
+[00:09:16.680 - 00:09:22.280] Kemudian, kita menggunakan untuk menentukan koefisien B,
+[00:09:22.380 - 00:09:24.280] kita menggunakan maksimum likelihood estimator,
+[00:09:25.740 - 00:09:28.700] yaitu algoritma stochastic gradient ascent.

@@ -1,0 +1,100 @@
+[00:00:00.000 - 00:00:18.320] Halo semua, kembali bersama saya Masayu. Pada video kedua ini kita akan mempelajari minimum risk Bayes decision rule atau decision rule yang berbasiskan minimum risk.
+[00:00:18.320 - 00:00:32.100] Seperti yang dijelaskan sebelumnya, bagian yang kedua ini menggunakan conditional risk yang merupakan generalisasi dari aturan yang berbasiskan posterior probability.
+[00:00:33.480 - 00:00:39.380] Generalisasi dimulai dengan memperkenalkan suatu variable baru yang namanya aksi.
+[00:00:39.380 - 00:00:48.500] Jadi kita lepaskan hasil klasifikasi dengan decision berupa aksi ini.
+[00:00:49.100 - 00:01:04.080] Kita harus mengingat kembali adanya cost ketika terjadi klasifikasi dan nilai cost itu bisa berbeda terhadap kesalahan, jenis kesalahan yang terjadi.
+[00:01:04.080 - 00:01:12.280] Nah pada bagian ini yang kita definisikan ini adalah adanya loss function.
+[00:01:12.280 - 00:01:22.020] Loss function dilambangkan dengan lambda yang merupakan conditional ya.
+[00:01:22.020 - 00:01:36.020] Jadi ketika kita mengetahui suatu kelas hasil klasifikasi, kemudian aksi yang akan dilakukan, loss function itu mendefinisikan hubungan keduanya.
+[00:01:37.260 - 00:01:48.480] Jadi menyatakan cost ketika aksi dilakukan dengan nanti pengambilan keputusan mempertimbangkan semua hasil klasifikasi.
+[00:01:48.480 - 00:01:57.580] Action dan loss merupakan konsep yang digunakan pada base decision rule yang berbasiskan minimum risk.
+[00:01:57.580 - 00:02:07.580] Jadi sebagai contoh ketika seorang anak ingin menentukan apakah dia akan mengambil suatu course atau tidak berbasiskan klasifikasi dari course tersebut.
+[00:02:07.580 - 00:02:12.880] Misalnya klasifikasi dari course tersebut bisa good, fair, dan bad.
+[00:02:13.280 - 00:02:18.480] Sedangkan aksinya take dan not take sesuai dengan task yang diinginkan.
+[00:02:18.980 - 00:02:23.040] Nah bisa kita lihat di sini action ditambahkan setelah klasifikasi.
+[00:02:23.760 - 00:02:29.980] Ini untuk memberikan kemungkinan kalau dibutuhkan rejection.
+[00:02:29.980 - 00:02:34.320] Nah nanti kita akan lihat seperti apa.
+[00:02:34.920 - 00:02:37.700] Jadi tidak hanya bergantung terhadap hasil klasifikasi.
+[00:02:38.520 - 00:02:40.740] Nah kemudian didefinisikan juga loss function.
+[00:02:41.080 - 00:02:46.660] Lambda alpha i, aksi alpha i given kategori wc.
+[00:02:46.660 - 00:02:59.300] Ini menyatakan cost ketika kita mengambil aksi alpha i untuk kategori yang benar itu adalah wc.
+[00:02:59.980 - 00:03:13.560] Kita lanjutkan dengan mendefinisikan suatu matrix loss yang mengaitkan antara aksi yang dipilih terhadap setiap kelas yang ada.
+[00:03:13.560 - 00:03:21.260] Sebagai contoh di sini nilai loss adalah 0 untuk aksi take dan course-nya good.
+[00:03:21.480 - 00:03:27.740] Dan nilai loss juga 0 untuk not take dan kelasnya adalah bad.
+[00:03:27.740 - 00:03:33.200] Nah untuk yang lainnya tinggal kita definisikan sesuai dengan domainnya.
+[00:03:33.580 - 00:03:40.180] Kemudian kita bisa menghitung expected loss-nya dari action alpha i.
+[00:03:40.180 - 00:03:52.620] Jadi kita bisa bilang risk dari alpha i given x itu adalah total dari loss dari alpha i given wc dikali dengan pwc given x.
+[00:03:53.100 - 00:03:56.480] Ini kemudian dijumlahkan untuk semua kelas.
+[00:03:57.760 - 00:04:03.080] Nah misalkan sebagai contoh kita sudah punya peluang w given x.
+[00:04:03.080 - 00:04:09.320] Jadi ini adalah posterior probability untuk menentukan kelasnya.
+[00:04:10.280 - 00:04:12.120] Kemudian kita hitung risknya.
+[00:04:12.740 - 00:04:16.240] Risk take given x itu kita dapatkan 13,5.
+[00:04:16.860 - 00:04:22.140] Berdasarkan tabel yang di sini juga kita kalikan setiap peluangnya.
+[00:04:22.140 - 00:04:26.480] Kemudian risk dari not take given x itu adalah 7,5.
+[00:04:26.480 - 00:04:31.740] Karena ini menyatakan loss maka kita pilih yang paling minimum yaitu not take.
+[00:04:33.200 - 00:04:39.880] Jadi Bayes decision rule yang menggunakan minimum risk itu terdiri atas dua tahap.
+[00:04:40.000 - 00:04:46.860] Yang pertama kita hitung setiap expected loss dari alpha i given x.
+[00:04:46.860 - 00:04:55.780] Kemudian setelah kita hitung semua kita pilih action alpha i dengan minimum risk alpha i given x.
+[00:04:56.820 - 00:04:59.760] Nah untuk klasifikasi dua kategori.
+[00:05:00.460 - 00:05:04.320] Misalnya kita sudah mendefinisikan w itu adalah w1 w2.
+[00:05:04.800 - 00:05:10.540] Alpha itu alpha satunya decide w1. Alpha duanya itu decide w2.
+[00:05:10.540 - 00:05:17.760] Kemudian loss i j itu menyatakan loss ketika kita mengambil aksi i given wj.
+[00:05:18.460 - 00:05:19.700] Nah kita bisa hitung.
+[00:05:20.660 - 00:05:25.120] R alpha i given x itu sesuai dengan rungus yang sebelumnya.
+[00:05:25.120 - 00:05:38.140] Kita bisa dapatkan bahwa risk dari aksi 1 given x itu adalah loss 1-1 dikali peluang w1 given x.
+[00:05:38.140 - 00:05:42.760] Ditambah loss 1-2 dikali peluang w2 given x.
+[00:05:42.920 - 00:05:48.400] Begitu juga untuk risk dari alpha 2 given x.
+[00:05:48.740 - 00:06:00.660] Ini sama dengan lambda atau loss 2-1 peluang w1 given x ditambah dengan loss 2-2 peluang w2 given x.
+[00:06:00.660 - 00:06:10.640] Bayes decision rule yang berbasiskan risk itu menjadi kita bandingkan risk antara aksi alpha 1 dengan alpha 2.
+[00:06:10.640 - 00:06:21.400] Kalau lebih kecil aksi alpha 1 maka kita akan memberikan aksi alpha 1 sebagai hasilnya.
+[00:06:21.540 - 00:06:23.660] Di sini alpha 1-nya adalah decide w1.
+[00:06:24.320 - 00:06:28.140] Jika tidak maka kita ambil aksi alpha 2.
+[00:06:28.140 - 00:06:41.240] Nah dari sini sebenarnya kita bisa lihat bahwa sebelumnya sudah kita jabarkan dalam bentuk loss dan peluang posterior probability-nya.
+[00:06:41.240 - 00:06:58.460] Kemudian kita juga bisa turunkan dari perbandingan antara risk alpha 1 given x di lebih kecil dari risk alpha 2 given x ini menjadi bentuk yang ini.
+[00:06:58.460 - 00:07:02.460] Bentuk yang paling bawah.
+[00:07:02.460 - 00:07:12.620] Sehingga aturannya bisa kita ganti menjadi lambda 2-1 dikurang lambda 1-1 ini menyatakan loss.
+[00:07:13.900 - 00:07:23.460] Kesalahan loss dari 2-1 dikurang loss 1-1 dikalikan dengan peluang x given w1.
+[00:07:23.460 - 00:07:28.460] Ini menyatakan conditional probability density-nya.
+[00:07:28.900 - 00:07:40.460] Dikalikan dengan peluang 1 itu lebih besar daripada loss 1-2 dikurang loss 2-2 dikalikan dengan peluang x given w2 dikali peluang 2.
+[00:07:41.100 - 00:07:45.460] Maka kita akan mengambil action 1 di sini dibalik.
+[00:07:45.460 - 00:07:48.740] Kalau tadinya lebih kecil menjadi lebih besar.
+[00:07:48.740 - 00:07:52.860] Jika tidak maka kita ambil aksi yang kedua.
+[00:07:55.180 - 00:08:04.260] Setelah kita dapatkan rumus ini, kemudian kita bisa atur kembali menjadi bentuk rasio seperti ini.
+[00:08:04.420 - 00:08:07.620] Kita kumpulkan yang peluang x given w1.
+[00:08:08.020 - 00:08:12.740] Kita kumpulkan di sini di sebelah kiri menjadi suatu rasio likelihood.
+[00:08:12.740 - 00:08:18.740] Kemudian tandanya tetap karena tidak mengalihkan dengan negatif.
+[00:08:19.740 - 00:08:24.740] Kemudian yang sisanya dikembalikan ke sebelah kanan, dikumpulkan ke sebelah kanan.
+[00:08:25.740 - 00:08:33.420] Sehingga ini menjadi suatu nilai yang tidak bergantung terhadap x. Kita sebut dengan threshold.
+[00:08:33.420 - 00:08:40.520] Nah, ini disebut likelihood rasio dan yang di sebelah kanan disebut dengan threshold.
+[00:08:41.320 - 00:08:54.960] Sehingga Bayes decision rule bisa diinterpretasikan jika likelihood rasio dari kelas w1 dan w2 melebihi dari suatu nilai threshold tertentu yang independen terhadap input x.
+[00:08:55.460 - 00:09:00.280] Maka aksi yang optimal itu adalah memilih w1.
+[00:09:00.280 - 00:09:07.420] Kita akan ambil contoh kembali klasifikasi ikan sesuai dengan datanya kita.
+[00:09:07.980 - 00:09:10.380] Kita bisa hitung likelihood rasionya.
+[00:09:10.980 - 00:09:19.940] Yaitu kita lihat hanya berdasarkan likelihood dari nilai x terhadap w1 dan x terhadap w2.
+[00:09:20.100 - 00:09:21.940] Kita dapatkan angka 1,02.
+[00:09:21.940 - 00:09:29.640] Lalu untuk threshold value-nya berdasarkan loss dan prior probability.
+[00:09:29.640 - 00:09:31.940] Kita dapatkan angka 0,77.
+[00:09:32.700 - 00:09:41.640] Dari sini karena likelihood rasio-nya lebih besar dari threshold, maka kita tentukan ini adalah w1 atau salmon.
+[00:09:41.640 - 00:09:52.700] Ada satu special case untuk minimum risk decision rule ini yaitu disebut dengan maximum likelihood decision rule.
+[00:09:52.900 - 00:10:03.500] Yaitu ketika kasusnya loss function-nya cuma memiliki nilai 0 dan 1 dan jumlah action itu sama dengan jumlah kelas.
+[00:10:03.500 - 00:10:12.440] Jadi untuk kasus ini, lambda 22 dan lambda 11 ini bernilai 0, lambda 12 dan lambda 21 ini bernilai 1.
+[00:10:13.200 - 00:10:16.640] Kemudian artinya di sini rasionya adalah 1.
+[00:10:17.420 - 00:10:24.940] Kemudian prior probability kedua kelasnya adalah sama, sehingga pw2 dibagi dengan pw1 ini adalah 1.
+[00:10:24.940 - 00:10:29.120] Sehingga threshold value-nya adalah 1.
+[00:10:30.040 - 00:10:39.040] Nah, inilah yang disebut dengan maximum likelihood decision rule karena hanya bergantung terhadap likelihood rasio yang ada di sebelah kiri ini.
+[00:10:40.340 - 00:10:45.580] Sebagai penutup kuliah ini, kita telah mempelajari minimum risk Bayes decision rule,
+[00:10:45.580 - 00:10:56.640] di mana diperkenalkan satu variable random baru yaitu action, yang kemudian setiap action dipetakan ke setiap kelas yang mungkin.
+[00:10:57.520 - 00:11:05.260] Hasil pemetaannya berupa cost yang merupakan bagian dari loss function.
+[00:11:06.100 - 00:11:13.500] Nah, setelah kita memiliki action dan loss, kita bisa menghitung conditional risk dari setiap action.
+[00:11:13.500 - 00:11:20.260] Nah, dari sini kita akan mengambil aksi yang meminimumkan conditional risk.
+[00:11:20.800 - 00:11:26.640] Lalu kita juga menurunkan rule yang berbasiskan likelihood ratio.
+[00:11:26.840 - 00:11:36.400] Likelihood ratio ini merupakan rasio dari posterior probability antara kelas 1 dengan kelas yang kedua.
+[00:11:37.200 - 00:11:39.940] Kemudian threshold-nya,
+[00:11:39.940 - 00:11:43.940] Jadi kita membandingkan likelihood ratio dengan threshold, kan.
+[00:11:44.440 - 00:11:49.060] Nah, threshold-nya ini bergantung terhadap nilai cost.
+[00:11:49.440 - 00:11:51.720] Jadi ini merupakan rasio dari cost.
+[00:11:52.740 - 00:11:56.780] Dikalikan dengan rasio dari prior probability.
+[00:11:57.660 - 00:12:04.020] Nah, dalam penggunaan atau dalam penggunakan rule yang berbasiskan likelihood ratio dan threshold ini,
+[00:12:04.020 - 00:12:09.040] terdapat kasus khusus yang disebut dengan maximum likelihood decision rule,
+[00:12:09.400 - 00:12:11.400] di mana threshold-nya sama dengan 1,
+[00:12:12.320 - 00:12:17.340] sedangkan kita hanya bergantung terhadap likelihood ratio saja.

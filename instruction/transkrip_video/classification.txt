@@ -1,0 +1,122 @@
+[00:00:00.000 - 00:00:08.600] Halo semua, bersama saya Masayu, kita akan membahas modul classification.
+[00:00:09.300 - 00:00:16.560] Ini adalah video pertama, kita akan membahas tentang tipe dari task klasifikasinya terlebih dahulu.
+[00:00:17.720 - 00:00:27.980] Jika sebelumnya kita sudah mempelajari bahwa pengenalan pola itu menggunakan keteraturan data untuk menentukan kelas dari suatu data masukan,
+[00:00:27.980 - 00:00:33.500] nah kegiatan ini disebut kegiatan klasifikasi atau disebut juga kategorisasi.
+[00:00:34.640 - 00:00:43.260] Jadi sebagai contoh pada klasifikasi ikan, kita meng-assign untuk setiap image ikan,
+[00:00:43.820 - 00:00:52.440] ini kita assign mana label yang paling tepat dari kelas-kelas yang telah didefinisikan sebelumnya.
+[00:00:52.440 - 00:00:56.800] Jadi ikan apa saja yang ingin dikenali itu menjadi predefined kelasnya,
+[00:00:56.800 - 00:01:02.700] kemudian ketika ada image baru, ditentukan bahwa ikan ini adalah ikan yang mana.
+[00:01:03.860 - 00:01:10.020] Kemudian fraud detection, berbeda dengan sebelumnya, di mana setiap image itu saling independen,
+[00:01:10.460 - 00:01:16.740] pada fraud detection yang dilakukan tidak hanya menerima masukan transaksi saat itu saja,
+[00:01:17.280 - 00:01:20.520] tetapi berupa sekuens dari transaksi.
+[00:01:20.520 - 00:01:26.420] Lalu ditentukanlah apakah ini merupakan transaksi fraud atau bukan fraud.
+[00:01:27.880 - 00:01:34.320] Kemudian complaint disposition ini untuk teks, di mana dilakukan disposisi dinas mana saja
+[00:01:34.320 - 00:01:40.420] yang akan mendapatkan disposisi dari keluhan yang diberikan kepada masyarakat.
+[00:01:40.420 - 00:01:47.240] Nah perbedaannya dengan dua contoh yang lainnya adalah pada complaint disposition ini,
+[00:01:47.940 - 00:01:51.580] outputnya bisa lebih dari satu label.
+[00:01:51.820 - 00:01:55.720] Jadi kita bisa memberikan lebih dari satu label.
+[00:01:57.320 - 00:02:00.420] Mari kita lihat beberapa tipe klasifikasi.
+[00:02:00.420 - 00:02:06.800] Yang pertama adalah binary atau multi-class classification.
+[00:02:07.440 - 00:02:11.520] Dibedakan berdasarkan banyaknya kelas yang terdefinisi.
+[00:02:12.280 - 00:02:15.880] Jika hanya dua disebut dengan binary classification,
+[00:02:16.680 - 00:02:19.360] jika lebih disebut multi-class classification.
+[00:02:20.660 - 00:02:26.920] Sedangkan tipe yang lain adalah single label atau multi-label classification,
+[00:02:26.920 - 00:02:33.660] dibedakan berdasarkan jumlah kelas yang dihasilkan oleh model klasifikasi.
+[00:02:34.340 - 00:02:36.640] Ketika outputnya hanya satu saja,
+[00:02:37.020 - 00:02:39.440] maka disebut single label classification.
+[00:02:39.440 - 00:02:43.340] Jika lebih dari satu disebut multi-label classification.
+[00:02:44.380 - 00:02:48.760] Binary classification pasti single label classification.
+[00:02:49.700 - 00:02:54.760] Sedangkan multi-class classification dapat berupa single label classification
+[00:02:54.760 - 00:02:57.760] atau multi-label classification.
+[00:02:58.580 - 00:03:03.380] Ketika multi-class classification yang merupakan single label classification,
+[00:03:03.720 - 00:03:06.360] cukup disebut dengan multi-class classification.
+[00:03:07.220 - 00:03:12.680] Sedangkan multi-class yang merupakan multi-label, tidak disebut lagi multi-class,
+[00:03:12.800 - 00:03:14.880] tetapi multi-label classification.
+[00:03:16.620 - 00:03:23.200] Sedangkan dilihat dari outputnya berupa kelas atau peluang,
+[00:03:23.200 - 00:03:28.620] kita bisa bedakan menjadi hard classification untuk output berupa kelas
+[00:03:28.620 - 00:03:34.740] atau soft fuzzy classification jika outputnya berupa peluang.
+[00:03:35.800 - 00:03:40.340] Sekarang mari kita bahas definisi formal dari klasifikasi itu sendiri.
+[00:03:41.060 - 00:03:45.500] Sebagai sebuah fungsi yang memetakan X yang merupakan masukan
+[00:03:45.500 - 00:03:48.960] dalam bentuk feature vector D dimensi,
+[00:03:49.100 - 00:03:51.940] direpresentasikan sebagai bilangan real D dimensi,
+[00:03:51.940 - 00:03:56.660] lalu untuk range dari fungsi ini berupa set of label.
+[00:03:57.360 - 00:04:00.220] Kita mulai dengan single label classification,
+[00:04:00.720 - 00:04:07.820] di mana fungsinya memetakan feature vector masukan ke satu label
+[00:04:07.820 - 00:04:09.580] yang merupakan anggota dari L.
+[00:04:10.080 - 00:04:14.920] Ketika jumlah anggota L itu tepat 2, disebut binary classification,
+[00:04:15.540 - 00:04:21.280] seperti fraud atau bukan fraud. kemudian jika lebih dari 2,
+[00:04:21.480 - 00:04:23.580] itu disebut multi-class classification.
+[00:04:23.580 - 00:04:29.460] Nah, kalau misalnya outputnya diinginkan berupa real,
+[00:04:30.000 - 00:04:33.160] atau berupa peluang dari setiap label,
+[00:04:33.400 - 00:04:35.440] yang kalau dijumlahkan sama dengan satu,
+[00:04:36.140 - 00:04:40.980] inilah yang merupakan definisi formal dari soft atau fuzzy classification.
+[00:04:40.980 - 00:04:44.580] untuk multi-label classification,
+[00:04:44.900 - 00:04:47.160] bagian yang berbedanya hanya di bagian range,
+[00:04:47.260 - 00:04:52.040] di mana outputnya berupa subset dari label. Jadi, untuk disposisi,
+[00:04:52.160 - 00:04:56.700] misalnya ada 10 unit yang mungkin mendapat disposisi,
+[00:04:58.060 - 00:05:01.300] sedangkan untuk satu teks masukan hanya 2 unit yang relevan,
+[00:05:01.420 - 00:05:04.160] maka kita langsung bilang unit 1 dan unit 2.
+[00:05:04.820 - 00:05:06.700] Unit 3 sampai 10 tidak disebutkan.
+[00:05:06.700 - 00:05:13.280] Tetapi, bisa juga representasinya dalam bentuk 0 atau 1 sebanyak label.
+[00:05:13.420 - 00:05:14.940] Jadi, kalau ada 10 label,
+[00:05:15.620 - 00:05:20.100] dinyatakan 1 ketika relevan, 0 tidak relevan. Jadi, untuk kasus yang sama,
+[00:05:20.320 - 00:05:22.920] ketika unit 1 dan unit 2 itu relevan,
+[00:05:23.780 - 00:05:26.460] maka kita representasikan sebagai 1-1,
+[00:05:27.200 - 00:05:30.700] dan nilai yang lainnya adalah 0 untuk label lainnya.
+[00:05:30.700 - 00:05:38.860] sedangkan untuk multi-label classification dengan soft atau fuzzy classification,
+[00:05:39.220 - 00:05:40.700] bentuknya sama seperti sebelumnya,
+[00:05:41.340 - 00:05:43.500] dalam bentuk real yang menyatakan peluang,
+[00:05:44.000 - 00:05:46.100] tetapi berbeda dengan sebelumnya.
+[00:05:46.620 - 00:05:53.360] Kalau ini menyatakan peluang suatu label itu terjadi atau tidak, dan independen antar label.
+[00:05:53.580 - 00:05:56.460] Jadi, kalau dijumlakan, jumlahnya bisa lebih dari 1.
+[00:05:56.460 - 00:06:00.820] Dia akan bernilai 1, jumlahnya adalah 1,
+[00:06:00.980 - 00:06:06.480] dengan komplement dari tidak relevannya label tersebut.
+[00:06:08.180 - 00:06:13.720] Sekarang kita akan menentukan dari 3 contoh yang sudah kita bahas sebelumnya,
+[00:06:14.560 - 00:06:21.260] apa saja task type dari klasifikasi yang paling tepat. Untuk fish classification,
+[00:06:21.760 - 00:06:25.000] ini merupakan klasifikasi multi-class,
+[00:06:25.080 - 00:06:29.840] karena tadi didefinisikan ada sejumlah ikan yang ingin dikenali.
+[00:06:30.860 - 00:06:33.440] Jika ternyata jumlah ikannya hanya 2,
+[00:06:34.240 - 00:06:36.440] seperti pada kuliah kita sebelumnya,
+[00:06:36.580 - 00:06:40.480] maka disebut binary classification. Tapi dalam kasus ini,
+[00:06:41.060 - 00:06:46.240] kita sebut dulu multi-class classification. Lalu, merupakan single label,
+[00:06:46.240 - 00:06:49.540] karena outputnya hanya 1 ikan,
+[00:06:49.720 - 00:06:55.160] jadi dicari ikan yang paling tepat, sebagai hasil klasifikasi,
+[00:06:55.460 - 00:07:03.340] dan klasifikasinya bisa dalam bentuk hard classification, langsung label ikannya, atau dalam bentuk peluang,
+[00:07:03.460 - 00:07:07.380] yang kita sebut dengan soft atau fuzzy classification.
+[00:07:08.740 - 00:07:09.500] Kemudian,
+[00:07:10.220 - 00:07:12.380] seperti yang kita sampaikan sebelumnya,
+[00:07:12.380 - 00:07:15.900] ketika multi-class classification dan single label,
+[00:07:15.900 - 00:07:19.140] kita cukup menyebutnya multi-class classification saja,
+[00:07:19.380 - 00:07:27.060] karena sudah pasti single label. Kemudian, fraud detection, ini merupakan binary, single label,
+[00:07:28.200 - 00:07:31.580] hard, atau soft fuzzy bisa,
+[00:07:31.880 - 00:07:36.580] kemudian sequence classification. Sama seperti sebelumnya,
+[00:07:36.760 - 00:07:42.600] kita cukup menyebutnya binary classification. Kemudian, untuk complaint disposition,
+[00:07:43.040 - 00:07:45.180] ini adalah multi-class classification,
+[00:07:45.900 - 00:07:51.460] kalau dilihat dari jumlah kelas pada set label, multi-label classification,
+[00:07:51.680 - 00:07:53.640] karena bisa lebih dari satu dinas,
+[00:07:53.720 - 00:07:56.180] yang merupakan target disposisi,
+[00:07:56.460 - 00:08:01.920] serta klasifikasinya bisa dalam bentuk hard atau soft. Nah,
+[00:08:01.980 - 00:08:05.500] untuk kasus kombinasi multi-class dan multi-label seperti ini,
+[00:08:05.660 - 00:08:07.880] kita cukup menyebutnya multi-label saja.
+[00:08:09.140 - 00:08:11.400] Sebagai bahan diskusi kita di kelas,
+[00:08:11.860 - 00:08:22.600] kita akan bersama-sama membahas apa saja tipe dari klasifikasi pada deteksi objek yang ada pada demo ini.
+[00:08:22.600 - 00:08:26.740] Ini kalian bisa coba sendiri demonya, dan ini diberikan,
+[00:08:26.940 - 00:08:28.780] di sebelah kanan diberikan output,
+[00:08:29.340 - 00:08:35.740] dari input gambar yang dimasukkan. Untuk diskusi berikutnya,
+[00:08:35.920 - 00:08:40.640] menentukan tipe task dari Aspect-based sentiment analysis.
+[00:08:40.640 - 00:08:53.120] Aspect-based sentiment analysis ini merupakan analisis sentiment yang tidak hanya menentukan polaritas dari satu teks sentiment itu positif, negatif, atau netral,
+[00:08:53.260 - 00:09:01.380] tetapi mengidentifikasi dulu ada aspek apa saja yang muncul pada teks review tersebut.
+[00:09:01.380 - 00:09:07.240] Misalnya di sini, pertama yang warna hijau ini tentang tempat yang berupa positif,
+[00:09:07.240 - 00:09:09.680] lalu tentang service,
+[00:09:10.640 - 00:09:12.860] lalu misalnya tentang makanannya,
+[00:09:14.120 - 00:09:16.420] dan seterusnya, itu adalah aspek.
+[00:09:16.860 - 00:09:23.120] Kemudian untuk setiap aspek ditentukan apakah dia positif, negatif, atau netral.
+[00:09:24.620 - 00:09:30.220] Tentukan juga tipe task klasifikasi dari image captioning.
+[00:09:30.220 - 00:09:33.220] Jadi dalam image captioning, inputnya berupa image,
+[00:09:33.220 - 00:09:39.680] lalu dihasilkan caption dari image input secara otomatis seperti ini.
+[00:09:40.280 - 00:09:44.380] Silakan dianalisis dulu mana bagian klasifikasinya,
+[00:09:45.180 - 00:09:51.860] dan tipe dari klasifikasi mana saja yang relevan dengan image captioning ini.
+[00:09:52.440 - 00:09:57.640] Sebagai penutup, kita sudah mempelajari berbagai task type dari klasifikasi,
+[00:09:57.640 - 00:10:05.520] ada binary, ada multi-class, single atau multi-label, hard atau soft classification,
+[00:10:06.440 - 00:10:13.160] atau sequence classification atau bukan. Demikian modul kali ini,
+[00:10:13.460 - 00:10:15.940] kita akan lanjutkan pada modul berikutnya.

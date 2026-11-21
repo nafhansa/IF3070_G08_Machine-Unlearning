@@ -1,0 +1,94 @@
+[00:00:00.000 - 00:00:13.140] Halo semua, bersama saya Masayu. Kita akan mempelajari bersama modul logistic regression.
+[00:00:14.000 - 00:00:23.600] Terdapat dua video dalam modul logistic regression ini dengan tujuan agar kita mampu memahami cara kerja logistic regression.
+[00:00:23.600 - 00:00:31.960] Video pertama memahami apa itu logistic regression dan kenapa dibutuhkan.
+[00:00:32.420 - 00:00:41.300] Kemudian nanti di video kedua akan dibahas bagaimana proses training untuk mendapatkan model logistic regression tersebut.
+[00:00:42.000 - 00:00:44.840] Baik, kita akan mulai saja video pertama ini.
+[00:00:46.060 - 00:00:52.840] Kita akan mulai pembahasan logistic regression dengan mereview dulu apa itu regresi.
+[00:00:52.840 - 00:00:59.940] Regresi ini merupakan kegiatan analisis untuk menemukan hubungan antara X dan Y.
+[00:01:00.800 - 00:01:06.840] Nah, X ini kita biasa sebut dengan feature independent variable ataupun regressor,
+[00:01:07.000 - 00:01:11.380] sedangkan Y ini adalah target attribute dependent variable atau response.
+[00:01:12.280 - 00:01:17.280] X ini bentuknya bisa berupa faktor dengan dimensi D.
+[00:01:17.280 - 00:01:23.100] Nah, tapi untuk kasus ini kita gunakan X ini hanya satu variable dulu untuk menyederhanakan.
+[00:01:23.800 - 00:01:28.180] Kemudian yang kita butuhkan dalam analisis ini adalah data berlabel.
+[00:01:29.120 - 00:01:33.120] Jadi ini merupakan pasangan nilai X dan nilai Y.
+[00:01:33.120 - 00:01:40.720] Artinya kita sebenarnya memiliki suatu fungsi target yang memetakan nilai X ke Y.
+[00:01:41.340 - 00:01:45.340] Nah, di dalam regresi yang kita cari adalah fungsi estimasinya.
+[00:01:46.080 - 00:01:52.540] Dalam bentuk Y-hat di sini merupakan persamaan linier beta 0 ditambah beta 1 X.
+[00:01:52.540 - 00:01:57.660] Jadi yang kita lakukan adalah mengestimasi nilai beta 0 dan beta 1.
+[00:01:58.240 - 00:02:07.100] Caranya dengan mengkuantifikasi hubungan kekuatan antara X dengan Y.
+[00:02:07.500 - 00:02:12.960] Jadi kalau ada beberapa X maka kita akan cari mana saja X yang memiliki hubungan yang kuat dengan Y.
+[00:02:13.880 - 00:02:15.600] Dan hubungannya linier.
+[00:02:16.240 - 00:02:20.520] Nah, dengan mengasumsikan bahwa random error.
+[00:02:20.520 - 00:02:22.220] Oh iya, di sini ada random error ya.
+[00:02:24.220 - 00:02:29.100] Ada faktor random error. Ekspektasi error itu adalah 0.
+[00:02:29.780 - 00:02:34.560] Kemudian variannya tetap yang kita sebut dengan homosedasticity.
+[00:02:35.340 - 00:02:39.100] Maka kita bisa menggunakan metode least square estimation.
+[00:02:40.020 - 00:02:47.140] Yang menggunakan derivasi atau turunan parsial dari persamaan errornya.
+[00:02:47.140 - 00:02:53.260] Sehingga kita bisa dapatkan B0 dan B1 yang meminimumkan error.
+[00:02:54.260 - 00:03:01.840] Lalu setelah kita dapatkan koefisien B0 dan B1, kita gunakan persamaan estimasi ini.
+[00:03:01.840 - 00:03:07.680] Untuk memprediksi nilai dari Y ketika ada X baru.
+[00:03:07.680 - 00:03:12.320] Bagaimana jika atribut target kita bertipe diskret?
+[00:03:12.540 - 00:03:14.940] Seperti pada contoh yang ada di depan ini.
+[00:03:15.820 - 00:03:21.880] Atribut HON ini hanya punya nilai 0 atau 1. Jadi nilainya tidak continue.
+[00:03:22.660 - 00:03:28.700] Apakah kita masih mungkin menggunakan regresi linier untuk mengestimasi nilai diskret ini?
+[00:03:29.200 - 00:03:34.540] Yang kita lebih kenal dengan task klasifikasi. Coba kita bahas ya.
+[00:03:35.020 - 00:03:38.540] Jadi disini misalkan kita punya data set 200 instance.
+[00:03:38.700 - 00:03:40.560] Dinyatakan dengan titik-titik yang hitam.
+[00:03:41.520 - 00:03:43.860] Sebenarnya data set ini terdiri atas 5 atribut.
+[00:03:43.860 - 00:03:50.420] Tapi sebagai contoh disini kita pakai saja satu nilai yang memiliki korelasi paling tinggi dari kelima atribut tersebut.
+[00:03:50.980 - 00:03:51.500] Yaitu write.
+[00:03:52.300 - 00:03:56.020] Nah, lalu kita buat persamaan liniernya.
+[00:03:56.300 - 00:04:01.100] Setelah kita dapatkan persamaan liniernya, kita gunakan threshold 0,5.
+[00:04:01.720 - 00:04:10.520] Jadi ketika ada data baru, maka kita akan masukkan ke nilai estimasi, ke persamaan dari fungsi estimasi ini.
+[00:04:10.860 - 00:04:12.380] Kita dapatkan nilai estimasinya.
+[00:04:13.060 - 00:04:16.900] Lalu lihat, apakah nilai Y hat-nya di atas 0,5?
+[00:04:17.520 - 00:04:19.860] Jika ia, maka kelasnya adalah 1.
+[00:04:20.020 - 00:04:24.020] Jika dibawa 0,5 atau sama dengan, maka kelasnya adalah 0.
+[00:04:24.020 - 00:04:33.160] Cara seperti ini termasuk pendekatan linear model atau linear discriminant function atau linear classifier.
+[00:04:34.160 - 00:04:47.960] Pada linear discriminant function terdapat dua bagian, yaitu bagian kombinasi linear yang mengalihkan antara data masukan yang berdimensi D di sini.
+[00:04:47.960 - 00:04:56.660] Dan biasanya dinyatakan dengan 1 masuk dalam vektor supaya lebih mudah direpresentasikan.
+[00:04:57.100 - 00:04:58.420] Jadi dia masuk vektor X.
+[00:04:58.940 - 00:05:02.680] Kemudian setiap nilai ini memiliki bobot.
+[00:05:02.880 - 00:05:12.300] Nah, yang dilakukan pada bagian kombinasi linear ini adalah mengalihkan antara vektor W yang menyatakan bobot dengan X.
+[00:05:12.300 - 00:05:15.880] Kemudian bagian yang kedua adalah decision rule.
+[00:05:16.760 - 00:05:24.700] Setelah kita mengalihkan vektor W dengan X, kita dapatkan sebuah nilai G, maka kita akan masuk ke decision rules-nya.
+[00:05:24.780 - 00:05:35.500] Pada tahapan decision rules, dilakukan penentuan apakah masuk kelas 1 di sini yang dinyatakan dengan W1 atau kelas 2 yang dinyatakan dengan W2.
+[00:05:35.500 - 00:05:42.740] Dengan mengecek atau memeriksa nilai G itu apakah lebih besar dari 0 atau lebih kecil dari 0.
+[00:05:44.480 - 00:05:53.000] Jika kita gambarkan, sebenarnya GX itu menyatakan decision surface seperti ini, suatu hyperplane.
+[00:05:53.000 - 00:06:03.120] yang kemudian setiap data itu berada di atas atau di bawah dari GX.
+[00:06:03.320 - 00:06:06.260] Oleh karena itu nilai GX sama dengan 0 itu ada di sini.
+[00:06:06.260 - 00:06:17.140] Tapi jika memang nanti data inputnya, nilai GX-nya adalah 0, maka biasanya dinyatakan sebagai kelas negatif.
+[00:06:17.140 - 00:06:28.180] Walaupun kita sudah membahas bagaimana linear regression itu bisa digunakan untuk klasifikasi sebagai model linear,
+[00:06:29.080 - 00:06:33.440] kita bisa melihat beberapa kelemahan dari linear regression.
+[00:06:33.440 - 00:06:42.100] Yang pertama adalah ada asumsi pada linear regression bahwa variable target itu berdistribusi normal.
+[00:06:42.100 - 00:06:51.960] Padahal variable target pada klasifikasi misalnya untuk binary itu dia bukan normal pastinya.
+[00:06:52.880 - 00:07:00.100] Kemudian asumsi berikutnya adalah variannya konstan pada linear regression.
+[00:07:00.100 - 00:07:13.140] Kemudian pada logistic regression jelas karena dia bukan normal dan merupakan variable binar, variannya tidak konstan.
+[00:07:14.520 - 00:07:24.040] Kemudian perbedaan yang lain adalah untuk bisa menggunakan least square, semua asumsi ini harus dipenuhi,
+[00:07:24.040 - 00:07:31.180] sehingga pada logistic regression tidak digunakan least square lagi tetapi maksimum likelihood.
+[00:07:31.460 - 00:07:34.040] Nanti kita akan bahas pada video berikutnya.
+[00:07:35.000 - 00:07:42.660] Selain itu, jika linear regression tadi kemudian Y hat-nya dimasukkan ke dalam decision rule,
+[00:07:43.260 - 00:07:49.400] pada logistic regression dia itu tidak hanya mengestimasi sebuah nilai sembarang,
+[00:07:49.400 - 00:07:54.660] tetapi yang diestimasinya adalah peluang dari kelas.
+[00:07:55.220 - 00:08:03.580] Jadi bisa kita lihat di sini ketika kumpulan data diestimasi menggunakan linear regression,
+[00:08:04.620 - 00:08:09.180] maka nilai itu menyatakan nilai estimasi.
+[00:08:09.180 - 00:08:18.640] Sedangkan pada logistic model, nilai yang didapatkan dari persamaan liniernya,
+[00:08:18.880 - 00:08:23.920] ini akan dimasukkan ke dalam fungsi logistik sehingga menyatakan peluang.
+[00:08:25.680 - 00:08:33.580] Secara representasi, fungsi estimasi pada logistic regression itu sama dengan regresi linear,
+[00:08:33.580 - 00:08:42.680] tetapi secara semantik, nilai Y pada logistic regression menyatakan lock odds dari peluang sukses.
+[00:08:43.200 - 00:08:53.860] Yang dimaksud dengan peluang sukses itu adalah peluang dari variable target yang bernilai 1.
+[00:08:53.860 - 00:09:05.260] Nah, kemudian yang dimaksud dengan odds dari sukses itu rasio antara P dibagi dengan 1 kurang P atau peluang gagalnya.
+[00:09:06.280 - 00:09:13.540] Nah, kemudian nanti setelah kita mendapatkan nilai Y hat, nilai Y hat ini dimasukkan ke fungsi logistik ini,
+[00:09:13.880 - 00:09:21.840] yang menyatakan nanti peluang ini menyatakan peluang nilai Y sama dengan 1 given X, B.
+[00:09:21.840 - 00:09:27.000] Kita bisa lihat di sini ya untuk persoalan kita.
+[00:09:27.700 - 00:09:32.840] Jadi, secara sekilas bentuknya sama, tapi secara semantik artinya berbeda.
+[00:09:35.180 - 00:09:40.840] Jadi, sebagai summary kita sudah mempelajari bahwa logistic regression itu adalah linear model,
+[00:09:42.500 - 00:09:46.020] dan yang kita pelajari adalah binary classification ya,
+[00:09:46.200 - 00:09:49.820] jadi variabelnya berupa variabel diskret dengan 2 nilai,
+[00:09:49.820 - 00:09:57.400] jika dibutuhkan lebih dari 2 nilai, maka logistic regression bisa dilakukan, tapi perlu penanganan khusus.
+[00:09:58.160 - 00:10:07.280] Kemudian, logistic regression ini termasuk salah satu algoritma yang secara natural dirancang untuk soft classification.
+[00:10:07.280 - 00:10:12.400] Artinya, output yang dihasilkan berupa peluang untuk setiap kelas.
+[00:10:12.400 - 00:10:24.120] Lalu, kita juga sudah melihat bahwa representasi yang diberikan persamaan linear pada logistic regression ini menyatakan log odds dari peluang sukses.
+[00:10:24.620 - 00:10:38.140] Kemudian, kita bisa menghitung peluang dari kelas positif dengan memasukkan nilai dari Y hat-nya ke dalam fungsi logistik.
+[00:10:38.140 - 00:10:48.820] Sebagai latihan, kita berikan 2 model, yaitu model regression linear yang berwarna merah dan yang berwarna biru adalah yang logistik.
+[00:10:49.360 - 00:11:00.920] Kalian diminta untuk menentukan kelas dari seorang siswa yang memiliki nilai write-nya sebesar 65.

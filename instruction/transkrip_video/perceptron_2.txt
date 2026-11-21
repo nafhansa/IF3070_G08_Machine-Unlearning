@@ -1,0 +1,188 @@
+[00:00:00.000 - 00:00:10.740] Halo semua, bersama saya Masayu, salah satu pengajar mata kuliah pembelajaran mesin.
+[00:00:11.440 - 00:00:15.460] Video ini merupakan bagian dari modul Artificial Neural Network.
+[00:00:16.080 - 00:00:25.840] Sebelumnya, kita sudah membahas perceptron dan bagaimana menentukan bobot dari perceptron dengan menggunakan perceptron training rule
+[00:00:25.840 - 00:00:30.140] sebagai hasil pembelajaran supervised dari data berlabel.
+[00:00:30.720 - 00:00:40.640] Pada video ini, kita akan membahas tentang gradient descent sebagai alternatif untuk pembelajaran perceptron dan juga pembelajaran ANN secara umum.
+[00:00:41.600 - 00:00:46.140] Diharapkan kita bisa memahami cara kerja gradient descent di akhir video ini.
+[00:00:47.220 - 00:00:55.080] Sebelum kita membahas bagaimana menggunakan gradient descent untuk menentukan bobot dari perceptron, kita akan bahas dulu apa itu perceptron.
+[00:00:55.080 - 00:00:58.060] Jadi, perceptron ini merupakan model linear.
+[00:00:58.960 - 00:01:12.460] Jadi, model linear yang mengkombinasikan antara vektor W yang merupakan bobot atau model dari perceptronnya dengan vektor X yang merupakan input data D dimensi atau D feature.
+[00:01:13.380 - 00:01:18.060] Kemudian, hasil dari kombinasi linearnya dimasukkan ke fungsi sine.
+[00:01:18.900 - 00:01:24.280] Jadi, yang dimasukkan dengan model atau hipotesis dari perceptron itu adalah vektor bobotnya sendiri.
+[00:01:24.280 - 00:01:28.880] Nah, kita juga sudah mempelajari perceptron training rule.
+[00:01:28.880 - 00:01:37.800] Jadi, dilakukan proses iterasi untuk mengupdate bobot yang dimulai dengan inisialisasi random sampai dengan convergent.
+[00:01:38.240 - 00:01:48.140] Jadi, disebut convergent ketika bobot itu digunakan mengestimasi semua data training itu tepat sama dengan labelnya.
+[00:01:48.140 - 00:01:58.300] Nah, persoalannya adalah perceptron training rule ini hanya menjamin convergent yaitu error yang akan sama dengan 0 ketika datanya linearly separable.
+[00:01:59.300 - 00:02:07.140] Nah, ketika datanya tidak linearly separable, hal ini akan menjadi masalah karena dia tidak akan pernah convergent.
+[00:02:07.140 - 00:02:14.060] Oleh karena itu, alternatif lain adalah training menggunakan gradient descent.
+[00:02:16.060 - 00:02:26.240] gradient descent itu merupakan strategi pencarian nilai kontinu untuk mendapatkan bobot yang memiliki error paling minimum.
+[00:02:26.240 - 00:02:30.940] Jadi, yang digunakan adalah gradient dari landscape errornya.
+[00:02:31.720 - 00:02:38.400] Jadi, di sini misalkan kita hanya menggunakan satu feature sehingga bobotnya hanyalah W0 dan W1.
+[00:02:39.260 - 00:02:43.240] Yang di bawah ini adalah bidang dari ruang hipotesisnya.
+[00:02:44.740 - 00:02:48.740] Jadi, dia merepresentasikan semua kombinasi nilai W0 dan W1 yang mungkin.
+[00:02:48.740 - 00:02:57.680] Kemudian, bidang yang di atasnya ini adalah permukaan dari yang dibentuk oleh fungsi error.
+[00:02:58.620 - 00:03:05.100] Jadi, misalkan kita punya HI yang memiliki nilai W0 dan W1 tertentu.
+[00:03:05.460 - 00:03:11.280] Ini berasosiasi dengan suatu nilai pada bagian errornya.
+[00:03:11.580 - 00:03:13.040] Jadi, suatu nilai error tertentu.
+[00:03:13.040 - 00:03:20.020] Kemudian, karena error yang diinginkan itu minimum, yaitu idealnya 0,
+[00:03:20.540 - 00:03:26.960] maka kita bisa menggunakan gradient untuk mendapatkan bobot yang lebih baik.
+[00:03:27.820 - 00:03:34.760] Jadi, di sini perpindahan atau update bobotnya itu menggunakan nilai gradient.
+[00:03:36.100 - 00:03:41.380] Jadi, misalkan kita update menjadi HJ dengan nilai W0 dan W1 yang baru.
+[00:03:41.380 - 00:03:52.380] Nah, gradient sendiri akan didapatkan dengan turunan parsial dari fungsi error terhadap bobot masing-masing.
+[00:03:53.360 - 00:03:59.360] Sedangkan, training rule-nya kita akan mengupdate nilai bobot dengan menggunakan negative gradient.
+[00:03:59.920 - 00:04:02.320] Karena kita ingin menuju minimum error.
+[00:04:02.320 - 00:04:06.620] Dan, besarannya ditentukan oleh nilai learning rate.
+[00:04:06.820 - 00:04:12.720] Sehingga, delta W di sini nilainya adalah negatif dari learning rate dikalikan gradient.
+[00:04:13.320 - 00:04:20.660] Sekarang, kita akan membahas bagaimana nilai gradient dipakai untuk memformulasikan aturan update bobotnya.
+[00:04:20.920 - 00:04:27.320] Jadi, kita akan pakai perhitungan gradientnya, yaitu turunan parsial dari setiap bobotnya.
+[00:04:27.320 - 00:04:31.440] Kita akan lihat salah satu saja untuk bobot yang ke-K.
+[00:04:31.960 - 00:04:34.020] Jadi, turunan error terhadap bobot yang ke-K.
+[00:04:34.620 - 00:04:42.120] Ini tinggal kita turunkan dari fungsi error untuk suatu bobot, faktor B bobot.
+[00:04:43.100 - 00:04:50.820] Jadi, di sini kita pakai setengah dari square error, kan? Untuk semua data.
+[00:04:50.820 - 00:04:58.060] Nah, jadi kita bisa keluarkan nilai setengah dan sigma-nya, lalu kita turunkan terhadap square error-nya.
+[00:04:58.740 - 00:05:00.780] Seperti biasa, ini kan polinomial ya.
+[00:05:01.080 - 00:05:07.200] Jadi, tinggal kita turunkan standar, lalu kita turunkan juga terhadap fungsi error.
+[00:05:08.040 - 00:05:09.760] Y, D dikurang dengan O, D.
+[00:05:09.900 - 00:05:12.560] Nah, lalu O, D ini kita ganti menjadi W dikali X.
+[00:05:12.740 - 00:05:16.600] Bisa lihat di sini, tidak dilakukan atau tidak digunakan fungsi sine.
+[00:05:16.600 - 00:05:27.740] Lalu, ketika kita turunkan, semua ini adalah 0, kita turunkan dan semua suku yang lain adalah 0, kecuali suku yang ke-K.
+[00:05:28.660 - 00:05:33.480] Oleh karena itu, di sini hasil turunannya menjadi seperti ini.
+[00:05:34.420 - 00:05:46.380] Nah, setelah kita dapat turunannya, untuk setiap bobot, kita bisa masukkan ke rungus atau ke aturan trainingnya, yaitu negatif dari gradient.
+[00:05:46.380 - 00:05:48.760] Misalnya, untuk bobot yang ke-K.
+[00:05:49.500 - 00:05:58.660] Jadi, di sini negatif gradient, masukkan nilai gradientnya, di sini juga ada negatif menjadi positif, lalu kita dapatkan rungus seperti ini.
+[00:05:59.600 - 00:06:04.780] Nah, karena ini menggunakan semua data, kita proses semua data dulu, baru dilakukan update.
+[00:06:05.540 - 00:06:09.600] Di sini bisa kita lihat, maka disebut dengan batch gradient descent.
+[00:06:09.600 - 00:06:14.520] Mari kita lakukan proses perceptron trainingnya menggunakan batch gradient descent.
+[00:06:14.700 - 00:06:19.860] Kita punya input training data, learning rate, dan error threshold.
+[00:06:20.380 - 00:06:24.720] Kita akan menggunakan data yang sama dengan sebelumnya, terdiri atas 2 instance,
+[00:06:25.280 - 00:06:29.280] dengan learning rate 0,3 dan error thresholdnya adalah 0,01.
+[00:06:29.280 - 00:06:34.000] Kita mulai dengan proses inisialisasi dengan nilai random yang sangat kecil.
+[00:06:34.120 - 00:06:39.100] Misalkan, kita samakan dengan sebelumnya, yaitu inisialisasinya adalah 0.
+[00:06:39.940 - 00:06:44.060] Jadi, karena di sini ada 3 feature, kita punya 4 bobot.
+[00:06:45.120 - 00:06:50.720] Kemudian, kita akan melakukan proses iterasinya sampai kondisi terminasi.
+[00:06:50.880 - 00:06:56.000] Di sini kondisi terminasinya adalah nilai errornya lebih kecil daripada error threshold.
+[00:06:56.000 - 00:07:06.280] Jadi, untuk epoch pertama, kita inisialisasi setiap nilai delta, delta W ya, bukan W ya, delta W-nya sama dengan 0.
+[00:07:06.920 - 00:07:13.540] Jadi, di sini WK, K-nya itu dari 0 sampai dengan 3, dan kita inisialisasi juga error sama dengan 0.
+[00:07:14.960 - 00:07:24.600] Kemudian, kita lakukan untuk setiap instance, kita lakukan prediksi seperti sebelumnya, dan kita akan menghitung delta WK.
+[00:07:24.600 - 00:07:31.380] Jadi, untuk data yang pertama, di epoch yang pertama, ini kita lakukan berurutan saja.
+[00:07:32.100 - 00:07:34.260] Kita lakukan melakukan perkalian, oke.
+[00:07:34.580 - 00:07:41.200] Kita jangan lupa di sini dia tidak menggunakan sign, tapi dia menggunakan aktivasi linier,
+[00:07:41.340 - 00:07:46.820] sehingga nilai UI-nya kita kalikan saja semua, antara W dengan nilai X, semuanya adalah 0.
+[00:07:46.820 - 00:07:49.320] Kemudian, kita hitung delta WI.
+[00:07:50.080 - 00:07:59.480] Delta W ke K-nya, untuk delta W 0, kita dapatkan nilainya adalah minus 0,3 sampai dengan delta W 3.
+[00:07:59.480 - 00:08:09.780] Jadi, di sini adalah 0, ini adalah delta W sebelumnya, 0,3 ini adalah learning rate, ini adalah nilai Y-nya, di sini, minus 1.
+[00:08:10.240 - 00:08:15.620] Dan ini adalah nilai 0, hasil dari UI-nya, dikalikan dengan X yang ke K.
+[00:08:15.800 - 00:08:21.580] X yang ke K, sekarang adalah W 3, ini nilai yang 1. Jadi, sama dengan minus 0,3.
+[00:08:21.580 - 00:08:31.000] Lalu, kita juga menghitung nilai error-nya, nilai error-nya adalah setengah.
+[00:08:31.960 - 00:08:35.580] Kemudian, pada instance yang kedua, kita lakukan hal yang sama,
+[00:08:36.240 - 00:08:40.780] tetapi, waktu kita menghitung output yang ke I untuk data yang kedua,
+[00:08:41.420 - 00:08:45.260] ini kita tetap menggunakan bobot yang semuanya 0.
+[00:08:45.400 - 00:08:48.880] Jadi, kita belum melakukan update bobot, jadi kita baru menghitung delta W.
+[00:08:48.880 - 00:08:53.420] Nah, kita lakukan hal yang sama, setelah kita dapatkan nilai delta W-nya,
+[00:08:53.940 - 00:08:59.340] kita hitung nilai error-nya, kita baru lakukan update bobot.
+[00:09:01.400 - 00:09:09.540] Nah, karena ini nilai error-nya masih cukup tinggi, kita lakukan epoch yang kedua.
+[00:09:10.040 - 00:09:15.620] Ini dilakukan sampai dengan nilai error-nya lebih kecil daripada threshold.
+[00:09:15.620 - 00:09:24.580] Sekarang kita coba simulasikan dengan menggunakan suatu dataset yang terdiri atas 3 data,
+[00:09:25.400 - 00:09:29.100] kemudian kita menggunakan nilai yang sama, learning rate, threshold,
+[00:09:29.840 - 00:09:31.700] dan fungsi aktifasinya adalah linear.
+[00:09:32.420 - 00:09:35.260] Nah, tadi bedanya, batch gradient descent itu adalah,
+[00:09:35.860 - 00:09:41.340] setiap datanya nanti ketika prediksi menggunakan nilai bobot yang sama, seperti ini.
+[00:09:41.340 - 00:09:48.120] Lalu, kita menghitung nilai delta W yang kekak untuk setiap data ya.
+[00:09:48.720 - 00:09:52.020] Dan jangan lupa menghitung nilai error-nya. Ini adalah error kumulatif.
+[00:09:52.860 - 00:09:55.960] Kemudian, setelah kita proses satu per satu,
+[00:09:56.520 - 00:10:00.160] kita, ini adalah inisialisasi awal di sini,
+[00:10:00.160 - 00:10:06.940] lalu kita dapatkan delta W0, delta W1, delta W2, sampai delta W3.
+[00:10:07.480 - 00:10:09.200] Ini dilakukan untuk setiap iterasi,
+[00:10:09.880 - 00:10:13.260] kita lakukan, lalu update bobotnya pada baris yang ini.
+[00:10:13.820 - 00:10:18.020] Sehingga kita dapatkan, ini adalah update bobot pada epoch yang pertama.
+[00:10:18.020 - 00:10:21.220] Karena nilai error kumulatifnya masih tinggi, 1,5,
+[00:10:21.940 - 00:10:24.700] maka kita lakukan iterasi yang kedua.
+[00:10:24.700 - 00:10:30.140] Nah, pada iterasi yang kedua, dilakukan hal yang sama. Sama seperti sebelumnya.
+[00:10:30.720 - 00:10:35.900] Lihat, bobot yang digunakan untuk menghitung nilai UI, ini semuanya sama,
+[00:10:36.500 - 00:10:38.640] karena kita melakukan update bobot di akhir.
+[00:10:39.360 - 00:10:44.040] Kita menghitung delta W untuk setiap iterasi, lalu kita hitung error-nya,
+[00:10:44.260 - 00:10:49.100] dan error-nya masih tinggi, 0,75. Dan kita di akhir, jangan lupa,
+[00:10:49.300 - 00:10:53.280] untuk mengupdate bobot berdasarkan nilai delta W1 ini.
+[00:10:53.280 - 00:10:55.360] Jadi, delta W ini yang terakhir,
+[00:10:55.760 - 00:10:57.940] ini yang dipakai untuk mengupdate bobot.
+[00:10:59.760 - 00:11:02.700] Lalu, misalkan setelah iterasi ke 10,
+[00:11:02.980 - 00:11:07.380] barulah kita mendapatkan yang nilai error-nya lebih kecil dari error threshold.
+[00:11:08.120 - 00:11:13.520] Dan, kita dapatkan bahwa inilah nilai W yang akan kita gunakan.
+[00:11:16.800 - 00:11:20.060] Setelah kita mempelajari cara kerja batch gradient descent,
+[00:11:20.060 - 00:11:25.660] kita ketahui bahwa perceptron yang diproses disebut dengan unthreshold perceptron,
+[00:11:25.740 - 00:11:28.520] karena menggunakan linear activation function,
+[00:11:28.820 - 00:11:33.160] lalu proses update bobotnya hanya dilakukan di akhir epoch saja,
+[00:11:33.280 - 00:11:38.740] hanya satu kali, bukan per instance. Kemudian, hasilnya,
+[00:11:38.860 - 00:11:41.760] bobotnya itu merupakan best fit approximation.
+[00:11:41.760 - 00:11:49.520] Jadi, memang dia bisa memproses data yang non-linearly sprayable, tetapi, tapi,
+[00:11:49.840 - 00:11:50.800] bobot yang dihasilkan,
+[00:11:50.960 - 00:11:56.120] ini adalah best fit approximation terhadap training datanya. Nah,
+[00:11:56.680 - 00:12:00.100] persoalan di dalam penggunaan praktisnya,
+[00:12:01.300 - 00:12:07.500] batch gradient descent ini dianggap lambat, karena dia butuh banyak iterasi
+[00:12:07.500 - 00:12:11.220] untuk bisa convergent ke lokal minimum. Kemudian,
+[00:12:11.340 - 00:12:13.360] ketika terdapat beberapa lokal minimum
+[00:12:13.360 - 00:12:19.300] pada error surface yang terbentuk, tidak ada jaminan lokal minimum
+[00:12:19.300 - 00:12:24.160] yang dia convergent, itu merupakan global minimum.
+[00:12:25.820 - 00:12:27.940] Stochastic gradient descent merupakan alternatif
+[00:12:27.940 - 00:12:32.700] yang bisa dipakai untuk menangani persoalan pada batch gradient descent. Nah,
+[00:12:33.140 - 00:12:36.560] mereka sama-sama dipakai untuk unthreshold perceptron
+[00:12:36.560 - 00:12:38.760] dan merupakan best fit approximation,
+[00:12:38.760 - 00:12:45.140] walaupun nanti gradient descent itu pada artificial neural network ini dipakai
+[00:12:45.140 - 00:12:47.060] untuk fungsi,
+[00:12:47.400 - 00:12:51.440] bisa untuk fungsi aktifasi yang memiliki turunan. Jadi,
+[00:12:51.840 - 00:12:53.880] kita mulai dengan apa perbedaannya.
+[00:12:54.720 - 00:12:56.460] Kalau tadi errornya adalah kumulatif,
+[00:12:56.560 - 00:12:59.180] di sini adalah errornya per instance. Sedangkan,
+[00:12:59.300 - 00:13:05.840] aturannya juga bisa kita sesuaikan. Jadi, yang tadinya aturan delta wk-nya menggunakan
+[00:13:05.840 - 00:13:12.960] menggunakan kumulatif, sekarang tidak lagi dilakukan per instance saja.
+[00:13:14.080 - 00:13:19.100] Oleh karena itu, yang tadinya batch menjadi incremental wage update.
+[00:13:20.600 - 00:13:23.000] Sekarang kita akan lihat proses yang dilakukan
+[00:13:23.000 - 00:13:29.220] pada stochastic gradient descent. Ada tiga input, seperti sebelumnya, training data, learning rate,
+[00:13:29.220 - 00:13:35.600] dan error threshold-nya. Kita akan menggunakan data yang sama. Kita akan mulai dengan inisialisasi
+[00:13:35.600 - 00:13:43.480] setiap nilai w. Jadi, kita akan menggunakan nilai 0, sama seperti sebelumnya, tetapi sebenarnya tidak harus 0.
+[00:13:43.660 - 00:13:50.760] Boleh menggunakan nilai random yang sangat kecil lainnya. Kemudian, kita lakukan proses iterasinya,
+[00:13:51.300 - 00:13:57.700] mulai dengan epoch pertama. Kita inisialisasi nilai error-nya, sama dengan 0. Lalu, kita mulai proses.
+[00:13:58.200 - 00:14:05.140] Kita proses data yang pertama dulu. Kita hitung hasil perkalian antara w dengan nilai x.
+[00:14:05.720 - 00:14:13.460] Kita dapatkan prediksinya adalah nilai 0. Nah, padahal labelnya adalah minus 1. Lalu,
+[00:14:14.120 - 00:14:20.700] karena terdapat perbedaan ini, kita lakukan update bobotnya. Jadi, di sini langsung update bobot,
+[00:14:20.820 - 00:14:28.640] bukan delta w lagi. Jadi, berbeda dengan yang batch. Jadi, ini adalah w 0, itu adalah w 0 sebelumnya, 0,
+[00:14:28.840 - 00:14:35.940] ditambah dengan learning rate, dikali dengan y yang ke i,
+[00:14:36.280 - 00:14:43.400] yaitu di sini minus 1, hasilnya adalah 0, dan dikali dengan x. x-nya adalah bias,
+[00:14:43.700 - 00:14:51.160] nilainya 1. Maka, nilainya adalah minus 0,3. Ini dilakukan untuk semua, sampai dengan w 3.
+[00:14:51.160 - 00:14:58.960] jadi, w 3 ini adalah nilai w 3 sebelumnya, lalu, ini learning rate, ini nilai y-nya,
+[00:14:59.120 - 00:15:05.900] sama, lalu, nilai o-nya, yang nilainya 0, lalu, dikali dengan 1, yang merupakan nilai yang,
+[00:15:06.120 - 00:15:13.560] feature yang ketiga. Nilainya adalah minus 0,3. Nah, ini nilai w saat ini. Kemudian, kita hitung nilai error,
+[00:15:13.800 - 00:15:21.380] 0,5. Untuk data berikutnya, kita menggunakan nilai w yang baru, untuk menghitung
+[00:15:21.380 - 00:15:27.900] prediksi dari o yang kedua ini. Nah, kita dapatkan, ternyata nilainya tetap 0. Jadi,
+[00:15:28.000 - 00:15:34.880] walaupun sudah kita update, di sini, ini dikalikan dengan 1, kemudian dikalikan dengan 0,
+[00:15:35.540 - 00:15:40.440] dikalikan dengan minus 1, dan minus 1. Jadi, ini saling menghilangkan,
+[00:15:42.360 - 00:15:48.220] sehingga nilainya tetap 0. Lalu, kita lakukan update yang sama ya, dan hitung nilai error.
+[00:15:48.580 - 00:15:56.380] Karena errornya masih tinggi, maka, kita masih melakukan, ini sudah selesai, ke sini kan,
+[00:15:56.460 - 00:16:03.560] sudah ada data yang kedua, lalu kita melakukan proses epoch yang kedua. Kita mulai dengan inisialisasi error
+[00:16:03.560 - 00:16:11.080] sama dengan 0. Dilakukan sampai dengan kondisi terminasinya. Untuk proses iterasi lengkapnya,
+[00:16:11.400 - 00:16:17.920] kita bisa lihat prosesnya. Kita mulai dengan parameternya, learning rate, kemudian theta,
+[00:16:18.220 - 00:16:24.060] dan fungsi aktifasinya. Jadi, kita punya tiga data, sama seperti sebelumnya. Kita inisialisasi
+[00:16:24.060 - 00:16:31.740] dengan nilai 0 semua, lalu kita hitung ini adalah O, yang ke I, lalu ini adalah errornya, error kumulatif ya.
+[00:16:32.560 - 00:16:40.140] Errornya tetap kumulatif, jangan lupa. Kemudian, ketika kita dapatkan nilai sigma-nya 0, dan targetnya minus 1,
+[00:16:40.360 - 00:16:46.800] kita update bobotnya. Kita dapatkan, ini update bobot yang baru. ketika kita memproses data yang kedua,
+[00:16:47.020 - 00:16:54.320] kita gunakan bobot yang baru ini, sehingga kita dapatkan nilai sigma-nya tetap 0, dan errornya kita
+[00:16:54.320 - 00:17:01.300] kumulatifkan. Ini kita lakukan, kemudian kita dapatkan, ini adalah W di akhir iterasi pertama,
+[00:17:01.360 - 00:17:03.920] atau epoch yang pertama. Karena errornya masih tinggi,
+[00:17:04.040 - 00:17:08.540] error kumulatifnya masih tinggi, maka kita lakukan iterasi kedua. Nah,
+[00:17:08.660 - 00:17:15.120] dilakukan dengan cara yang sama, pada akhir iterasi kedua, ini errornya masih 0,03.
+[00:17:15.580 - 00:17:22.520] Ini kita lakukan terus-menerus, sampai bisa mencapai error threshold lebih kecil dari 0,01. Misalnya,
+[00:17:22.640 - 00:17:30.640] pada iterasi ke-10, ternyata baru konvergen, kita dapatkan errornya di akhir epoch adalah 0, kemudian,
+[00:17:31.180 - 00:17:36.920] ini adalah bobot yang kita ambil sebagai model kita. Ini menjadi koefisien dari W.
+[00:17:41.800 - 00:17:50.740] Sebagai summary,
+[00:17:51.700 - 00:17:56.320] kita telah mempelajari bagaimana gradient descent dipakai untuk mengatasi persoalan pada
+[00:17:56.320 - 00:18:02.980] perceptron training rule yang hanya digunakan untuk training data yang linearly separable. Nah,
+[00:18:03.040 - 00:18:10.160] batch gradient descent itu dipakai dengan untracehold perceptron karena menggunakan
+[00:18:10.160 - 00:18:17.780] linear activation, lalu, dia juga di akhir epoch barulah dilakukan
+[00:18:17.780 - 00:18:23.500] update bobot, kita sebut dengan batch update, kemudian, hasilnya berupa batch fit approximation.
+[00:18:24.440 - 00:18:30.600] Persoalannya adalah dianggap konvergennya lambat ke lokal minimumnya, kemudian, tidak ada jaminan
+[00:18:30.600 - 00:18:37.480] akan mendapatkan global minimum ketika terdapat beberapa lokal minimum. Alternatif solusinya adalah dengan
+[00:18:37.480 - 00:18:45.360] stochastic gradient descent yang akan mengupdate bobot setiap selesai memproses satu instance, sehingga disebut
+[00:18:45.360 - 00:18:50.540] incremental which update. Dan, stochastic gradient descent ini
+[00:18:50.540 - 00:18:57.760] dapat menemukan global minimum untuk beberapa kasus, tapi ya,
+[00:18:57.820 - 00:19:05.100] tidak selalu, jadi tidak menjamin ketika terdapat beberapa lokal minimum. Berikutnya, kita akan mempelajari
+[00:19:05.100 - 00:19:10.300] multilayer perceptron ataupun artificial neural network secara umum.
