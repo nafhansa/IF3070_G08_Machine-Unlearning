@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+
+# hasil run yang bisa dibuat ulang oleh notebook (hanya model final yang di-push)
+output/models/*.pkl
+!output/models/final_*.pkl
+# salinan submisi buatan sendiri (duplikat)
+output/submissions/*1.csv
+output/submissions/*2.csv
