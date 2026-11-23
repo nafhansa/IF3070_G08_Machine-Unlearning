@@ -1,3 +1,9 @@
-from .base import BaseModel
+# Model yang tersedia untuk diimpor dari src.models.
 
-__all__ = ["BaseModel"]
+from .base import BaseModel
+from .naive_bayes import NaiveBayes
+
+__all__ = [
+    "BaseModel",
+    "NaiveBayes",
+]
